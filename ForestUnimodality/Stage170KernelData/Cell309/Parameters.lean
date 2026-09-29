@@ -1,0 +1,35 @@
+import ForestUnimodality.FiniteKernelInfiniteTails
+
+/-! Exact parameters of a production stage170 row. Zero-priced Laplace terms are omitted. -/
+namespace ForestUnimodality.Stage170KernelData.Cell309
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 8000000
+
+def row : RationalRow (Fin 1) where
+  terms := Finset.univ
+  scale := (35)
+  A := (4531712324885189686618503 / 125000000000000000000000000)
+  B := (24141162186992155130882409 / 1000000000000000000000000000)
+  C := (57023000621994550385362999 / 1000000000000000000000000000)
+  dδ := (2623406004753501413739869 / 125000000000000000000000000)
+  dM := (470922193061699536427607 / 2500000000000000000000000000)
+  wL := (0)
+  wR := (1)
+  wC := (0)
+  price := ![(13165800619750381628136893 / 1000000000000000000000000)]
+  retention := ![(7 / 10)]
+  fixedIndices := ∅
+  fixedPrice := fun _ => 0
+
+def interval : IntervalWitness where
+  lo := (33 / 53)
+  hi := (467 / 742)
+  vmin := (128425 / 550564)
+  damping := (128425 / 550564)
+
+theorem row_checked : row.signCheck = true := by decide +kernel
+theorem interval_checked : interval.check = true := by decide +kernel
+#print axioms row_checked
+#print axioms interval_checked
+end ForestUnimodality.Stage170KernelData.Cell309

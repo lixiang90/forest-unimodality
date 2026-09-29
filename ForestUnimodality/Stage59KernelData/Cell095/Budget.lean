@@ -1,0 +1,60 @@
+import ForestUnimodality.AnalyticNumericCertificate
+import ForestUnimodality.FiniteKernelSupportGraphBudget
+import ForestUnimodality.Stage59KernelData.Cell095.Parameters
+
+namespace ForestUnimodality.Stage59KernelData.Cell095
+open AnalyticNumericCertificate FiniteKernelRationalCertificate
+set_option maxRecDepth 200000
+set_option maxHeartbeats 0
+
+def rate : Fin 2 → ℚ := ![(748105779492800408682327849/7812500000000000000000000000), (233076835807607175559463509583/1000000000000000000000000000000)]
+def alpha : ℚ := (187418723169/1000000000000)
+def D : ℚ := (1619335743149367088607594936709/1000000000000000000000000000000)
+def mlo : ℚ := (45/2)
+def mhi : ℚ := (28/1)
+def varianceIntercept : ℚ := (0/1)
+
+noncomputable def budget (m : ℝ) : ℝ :=
+  row.graphBudgetWithCounts (fun i => (rate i : ℝ)) (fun j => (countBound j : ℝ)) alpha varianceIntercept D m
+
+def budgetExpression_lo : Expr := (.sub (.sub (.rat (2314196037421373592536557192263464225910039273604442285933/4000000000000000000000000000000000000000000000000000000000)) (.mul (.rat (1118799191706001172619267/250000000000000000000000)) (.exp (-6732952015435203678140950641/3125000000000000000000000000) (11595597973526452350607/100000000000000000000000) (115955979735264523506071/1000000000000000000000000) { parts := 3, inner := (-2244317338478401226046983547/3125000000000000000000000000), terms := 40, innerLo := (243819098348505362753405915789/500000000000000000000000000000), innerHi := (487638196697010725506811831579/1000000000000000000000000000000) }))) (.mul (.rat (37830282158840183859283/3906250000000000000000)) (.exp (-2097691522268464580035171586247/400000000000000000000000000000) (5277890404680977554883/1000000000000000000000000) (1319472601170244388721/250000000000000000000000) { parts := 6, inner := (-699230507422821526678390528749/800000000000000000000000000000), terms := 40, innerLo := (417263177865046644394650392461/1000000000000000000000000000000), innerHi := (208631588932523322197325196231/500000000000000000000000000000) })))
+theorem budgetExpression_lo_checked : budgetExpression_lo.positiveCheck=true := by decide +kernel
+
+theorem budgetExpression_lo_eval : budgetExpression_lo.eval = budget mlo := by
+  norm_num [budgetExpression_lo, Expr.eval, budget, RationalRow.graphBudgetWithCounts,
+    KernelBudget.budget, row, rate, countBound, alpha, D, mlo, mhi, varianceIntercept, Fin.sum_univ_succ]
+  ring
+
+theorem budget_lo_positive : 0 < budget mlo := by
+  rw [← budgetExpression_lo_eval]
+  exact budgetExpression_lo.positiveCheck_sound budgetExpression_lo_checked
+
+def budgetExpression_hi : Expr := (.sub (.sub (.rat (822889254795298365399398675150380191055050379998157125559/2500000000000000000000000000000000000000000000000000000000)) (.mul (.rat (1118799191706001172619267/250000000000000000000000)) (.exp (-5236740456449602860776294943/1953125000000000000000000000) (68480166642615908985799/1000000000000000000000000) (342400833213079544929/5000000000000000000000) { parts := 3, inner := (-1745580152149867620258764981/1953125000000000000000000000), terms := 40, innerLo := (81824796113633445867037988629/200000000000000000000000000000), innerHi := (204561990284083614667594971573/500000000000000000000000000000) }))) (.mul (.rat (37830282158840183859283/3906250000000000000000)) (.exp (-1631537850653250228916244567081/250000000000000000000000000000) (1464631794942727923503/1000000000000000000000000) (91539487183920495219/62500000000000000000000) { parts := 7, inner := (-233076835807607175559463509583/250000000000000000000000000000), terms := 40, innerLo := (153767339453364211395898409/390625000000000000000000000), innerHi := (393644389000612381173499927041/1000000000000000000000000000000) })))
+theorem budgetExpression_hi_checked : budgetExpression_hi.positiveCheck=true := by decide +kernel
+
+theorem budgetExpression_hi_eval : budgetExpression_hi.eval = budget mhi := by
+  norm_num [budgetExpression_hi, Expr.eval, budget, RationalRow.graphBudgetWithCounts,
+    KernelBudget.budget, row, rate, countBound, alpha, D, mlo, mhi, varianceIntercept, Fin.sum_univ_succ]
+  ring
+
+theorem budget_hi_positive : 0 < budget mhi := by
+  rw [← budgetExpression_hi_eval]
+  exact budgetExpression_hi.positiveCheck_sound budgetExpression_hi_checked
+
+theorem budget_positive {m : ℝ} (hm : m ∈ Set.Icc (mlo : ℝ) (mhi : ℝ)) :
+    0 < budget m := by
+  have hs := row.signCheck_sound row_checked
+  have hdM : (0 : ℝ) ≤ row.dM := by norm_num [row]
+  have hT : ∀ i ∈ row.terms, (0 : ℝ) ≤ row.price i := by
+    intro i hi
+    exact hs.price i hi
+  exact KernelBudget.budget_pos_of_endpoints row.terms row.fixedIndices
+    row.A row.B row.dδ row.dM alpha varianceIntercept D
+    (fun i => (row.price i : ℝ)) (fun i => (rate i : ℝ))
+    (fun j => (row.fixedPrice j : ℝ)) (fun j => (countBound j : ℝ))
+    (by norm_num [mlo, mhi]) hdM hT budget_lo_positive budget_hi_positive hm
+
+#print axioms budget_lo_positive
+#print axioms budget_hi_positive
+#print axioms budget_positive
+end ForestUnimodality.Stage59KernelData.Cell095

@@ -1,0 +1,10513 @@
+import ForestUnimodality.FiniteKernelDegreeCertificate
+import ForestUnimodality.FiniteKernelSequentialResidual
+import ForestUnimodality.Stage170KernelData.Cell345.Parameters
+import ForestUnimodality.BinomialMassData.Q107_156.Batch000_049
+import ForestUnimodality.BinomialMassData.Q107_156.Batch050_099
+import ForestUnimodality.BinomialMassData.Q9_13.Batch000_049
+import ForestUnimodality.BinomialMassData.Q9_13.Batch050_099
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel000
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (0/1)
+  centralHi := (0/1)
+  directionLo := (0/1)
+  directionHi := (0/1)
+
+def endpointA : IntegerEndpointWitness 0 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree000.table
+  base := (1718648387777970171494956719/250000000000000000000000000)
+  polynomial :=
+    { denominator := 780000000000000000000000000000000000000000
+      center := (1177)
+      previous := (0)
+      next := (539)
+      square := (10437788320259959104485680680000000000000)
+      linear := (-17387041812471793061911640160000000000000)
+      constant := (5362182969867266935064264963280000000000000) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 0 interval.damping) (curvature.centralUpper 0 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree000.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 0 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree000.table
+  base := (1718648387777970171494956719/250000000000000000000000000)
+  polynomial :=
+    { denominator := 65000000000000000000000000000000000000000
+      center := (99)
+      previous := (0)
+      next := (44)
+      square := (869815693354996592040473390000000000000)
+      linear := (-1448920151039316088492636680000000000000)
+      constant := (446848580822272244588688746940000000000000) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 0 interval.damping) (curvature.centralUpper 0 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree000.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 0 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 0 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel000
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel001
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (0/1)
+  centralHi := (0/1)
+  directionLo := (0/1)
+  directionHi := (0/1)
+
+def endpointA : IntegerEndpointWitness 1 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree001.table
+  base := (399542931519702197086547220353524852071/80000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-1236516305820307741504537882620000000000000)
+      constant := (152582813076412330060070935756825324999997750) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 1 interval.damping) (curvature.centralUpper 1 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree001.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 1 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree001.table
+  base := (49768832447900412578457576052075221893491/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-68985288887802095614265595720000000000000)
+      constant := (8447852488131070449806856019900712499999979) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 1 interval.damping) (curvature.centralUpper 1 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree001.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 1 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 1 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel001
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel002
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (0/1)
+  centralHi := (0/1)
+  directionLo := (29382451032349908141/100000000000000000000)
+  directionHi := (14691225516174954071/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 2 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree002.table
+  base := (18094087604820266501697774395168097674227/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-1794937980954215553594521799000000000000000)
+      constant := (111780675714941538939162407541232706249997068) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 2 interval.damping) (curvature.centralUpper 2 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree002.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 2 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree002.table
+  base := (17967475376199644157408705248020353591387/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-50149326924290986463861318880000000000000)
+      constant := (3084262384730833621104255060875439756944403) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 2 interval.damping) (curvature.centralUpper 2 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree002.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 2 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 2 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel002
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel003
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (29382451032349908141/100000000000000000000)
+  centralHi := (14691225516174954071/50000000000000000000)
+  directionLo := (1662122429828503513/4000000000000000000)
+  directionHi := (20776530372856293913/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 3 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree003.table
+  base := (13054164273566070336175700591399569992461/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-784453218696041121894835238460000000000000)
+      constant := (27513478507961458566686113702990827944710908) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 3 interval.damping) (curvature.centralUpper 3 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree003.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 3 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree003.table
+  base := (25831883296009003847024448146819206884861/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-131612018809361850241179679800000000000000)
+      constant := (4541383140636382029017657979272445963541509) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 3 interval.damping) (curvature.centralUpper 3 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree003.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 3 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 3 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel003
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel004
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (1662122429828503513/4000000000000000000)
+  centralHi := (20776530372856293913/50000000000000000000)
+  directionLo := (12722974509733662681/25000000000000000000)
+  directionHi := (2035675921557386029/4000000000000000000)
+
+def endpointA : IntegerEndpointWitness 4 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree004.table
+  base := (18704133676580222647439097497983564231141/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-2911781331222031177774489631760000000000000)
+      constant := (61822548079082705607217781575866002391130922) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 4 interval.damping) (curvature.centralUpper 4 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree004.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 4 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree004.table
+  base := (9217878373675701070488785424422320485763/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-81462691885070863777318360920000000000000)
+      constant := (1696696504326153135735605312087372162093947) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 4 interval.damping) (curvature.centralUpper 4 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree004.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 4 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 4 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel004
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel005
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (12722974509733662681/25000000000000000000)
+  centralHi := (2035675921557386029/4000000000000000000)
+  directionLo := (58764902064699816283/100000000000000000000)
+  directionHi := (14691225516174954071/25000000000000000000)
+
+def endpointA : IntegerEndpointWitness 5 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree005.table
+  base := (13249533194657266928115205957479531352621/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-3470203006355938989864473548140000000000000)
+      constant := (47418346759614237154987609471990234374673082) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 5 interval.damping) (curvature.centralUpper 5 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree005.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 5 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree005.table
+  base := (2601032056424641441689426497575831362579/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-194238748730921604868093763880000000000000)
+      constant := (2599255944202186327558357863151577501379255) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 5 interval.damping) (curvature.centralUpper 5 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree005.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 5 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 5 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel005
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel006
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (58764902064699816283/100000000000000000000)
+  centralHi := (14691225516174954071/25000000000000000000)
+  directionLo := (8212644731736658367/12500000000000000000)
+  directionHi := (65701157853893266937/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 6 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree006.table
+  base := (9240429630691437398988139302675073261829/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-1342874893829948933984819154840000000000000)
+      constant := (12598122353231748293448872118882524287494606) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 6 interval.damping) (curvature.centralUpper 6 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree006.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 6 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree006.table
+  base := (9026707583432050078666478161904240609203/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-225552113691701482181550805920000000000000)
+      constant := (2072209659731211841219535017761816662955307) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 6 interval.damping) (curvature.centralUpper 6 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree006.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 6 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 6 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel006
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel007
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (8212644731736658367/12500000000000000000)
+  centralHi := (65701157853893266937/100000000000000000000)
+  directionLo := (17993003105392525567/25000000000000000000)
+  directionHi := (71972012421570102269/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 7 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree007.table
+  base := (6269268369252016284604496476471923615691/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-4587046356623754614044441380900000000000000)
+      constant := (31710827839185485310365556214145091638932022) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 7 interval.damping) (curvature.centralUpper 7 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree007.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 7 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree007.table
+  base := (95116352404927992393633936430635134769/156250000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-128432739326240679747503923980000000000000)
+      constant := (871232625392556840578934507126874808830752) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 7 interval.damping) (curvature.centralUpper 7 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree007.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 7 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 7 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel007
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel008
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (17993003105392525567/25000000000000000000)
+  centralHi := (71972012421570102269/100000000000000000000)
+  directionLo := (77738658341130902739/100000000000000000000)
+  directionHi := (3886932917056545137/5000000000000000000)
+
+def endpointA : IntegerEndpointWitness 8 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree008.table
+  base := (4055954210893781409027736015590833252971/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-5145468031757662426134425297280000000000000)
+      constant := (28315679501372592585845469913187314755537782) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 8 interval.damping) (curvature.centralUpper 8 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree008.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 8 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree008.table
+  base := (3904339423146292148508614861040009758419/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-288178843613261236808464890000000000000000)
+      constant := (1562189334161739094939020832475761649172811) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 8 interval.damping) (curvature.centralUpper 8 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree008.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 8 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 8 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel008
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel009
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (77738658341130902739/100000000000000000000)
+  centralHi := (3886932917056545137/5000000000000000000)
+  directionLo := (83106121491425175651/100000000000000000000)
+  directionHi := (20776530372856293913/25000000000000000000)
+
+def endpointA : IntegerEndpointWitness 9 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree009.table
+  base := (599086764002773163605398314463909588637/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-1901296568963856746074803071220000000000000)
+      constant := (8995975954418736489442813450478117291511672) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 9 interval.damping) (curvature.centralUpper 9 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree009.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 9 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree009.table
+  base := (454363550617081145987662571980025701219/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-319492208574041114121921932040000000000000)
+      constant := (1496640843832438565522696771143121717530055) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 9 interval.damping) (curvature.centralUpper 9 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree009.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 9 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 9 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel009
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel010
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (83106121491425175651/100000000000000000000)
+  centralHi := (20776530372856293913/25000000000000000000)
+  directionLo := (3525894123881988977/4000000000000000000)
+  directionHi := (44073676548524862213/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 10 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree010.table
+  base := (1141651598528371810056917601276810306757/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-6262311382025478050314393130040000000000000)
+      constant := (27274937603754427040776391397634056953154794) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 10 interval.damping) (curvature.centralUpper 10 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree010.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 10 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree010.table
+  base := (520281557231055645837177636125029975497/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-175402786767410495717689487040000000000000)
+      constant := (760292482625238574843730664705130065858993) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 10 interval.damping) (curvature.centralUpper 10 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree010.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 10 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 10 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel010
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel011
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (3525894123881988977/4000000000000000000)
+  centralHi := (44073676548524862213/50000000000000000000)
+  directionLo := (92915468500591449297/100000000000000000000)
+  directionHi := (46457734250295724649/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 11 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree011.table
+  base := (91692359606548442938083340096927523349/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-6820733057159385862404377046420000000000000)
+      constant := (28846703074161913409434279175447207052055316) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 11 interval.damping) (curvature.centralUpper 11 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree011.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 11 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree011.table
+  base := (102085810292282157486933282807627219023/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-382118938495600868748836016120000000000000)
+      constant := (1615686939625537439150476817494489000014887) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 11 interval.damping) (curvature.centralUpper 11 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree011.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 11 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 11 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel011
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel012
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (92915468500591449297/100000000000000000000)
+  centralHi := (46457734250295724649/50000000000000000000)
+  directionLo := (97450565495295315961/100000000000000000000)
+  directionHi := (48725282747647657981/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 12 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree012.table
+  base := (-557573420399914987257243978685050048311/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-2459718244097764558164786987600000000000000)
+      constant := (10487513908622527428796204572373359251012646) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 12 interval.damping) (curvature.centralUpper 12 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree012.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 12 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree012.table
+  base := (-62246750518067541778141579370712856691/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-206716151728190373031146529080000000000000)
+      constant := (884310275762377545490066020791747636096105) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 12 interval.damping) (curvature.centralUpper 12 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree012.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 12 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 12 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel012
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel013
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (97450565495295315961/100000000000000000000)
+  centralHi := (48725282747647657981/50000000000000000000)
+  directionLo := (12722974509733662681/12500000000000000000)
+  directionHi := (101783796077869301449/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 13 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree013.table
+  base := (-569475314301579496322696951213145800183/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 2340000000000000000000000000000000000000000
+      center := (3531)
+      previous := (0)
+      next := (1617)
+      square := (31313364960779877313457042040000000000000)
+      linear := (-610582800571323191275718836860000000000000)
+      constant := (2688218889695820255694959161639747765514356) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 13 interval.damping) (curvature.centralUpper 13 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree013.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 13 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree013.table
+  base := (-1190433826669804576760801977674356552841/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 130000000000000000000000000000000000000000
+      center := (198)
+      previous := (0)
+      next := (88)
+      square := (1739631386709993184080946780000000000000)
+      linear := (-34211205262858509490442315400000000000000)
+      constant := (151515065295509678005533723710233364813067) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 13 interval.damping) (curvature.centralUpper 13 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree013.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 13 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 13 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel013
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel014
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (12722974509733662681/12500000000000000000)
+  centralHi := (101783796077869301449/100000000000000000000)
+  directionLo := (105939933795947420231/100000000000000000000)
+  directionHi := (13242491724493427529/12500000000000000000)
+
+def endpointA : IntegerEndpointWitness 14 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree014.table
+  base := (-64115431297900527631310316395704487477/400000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-8495998082561109298674328795560000000000000)
+      constant := (39171428130707385462347652929056673727374150) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 14 interval.damping) (curvature.centralUpper 14 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree014.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 14 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree014.table
+  base := (-328704920889340832045221886301814514161/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-476059033377940500689207142240000000000000)
+      constant := (2211863596480249404334940493994966735533955) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 14 interval.damping) (curvature.centralUpper 14 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree014.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 14 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 14 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel014
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel015
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (105939933795947420231/100000000000000000000)
+  centralHi := (13242491724493427529/12500000000000000000)
+  directionLo := (109939064946715653599/100000000000000000000)
+  directionHi := (137423831183394567/125000000000000000)
+
+def endpointA : IntegerEndpointWitness 15 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree015.table
+  base := (-1980153978070867829338459724181101355787/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-3018139919231672370254770903980000000000000)
+      constant := (14680890525800428855972896944892863225231982) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 15 interval.damping) (curvature.centralUpper 15 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree015.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 15 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree015.table
+  base := (-1006049938423609926709282368534252782969/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-253686199169360189001332092140000000000000)
+      constant := (1244996473980933970481685503267711279678239) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 15 interval.damping) (curvature.centralUpper 15 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree015.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 15 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 15 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel015
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel016
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (109939064946715653599/100000000000000000000)
+  centralHi := (137423831183394567/125000000000000000)
+  directionLo := (2275954870380922359/2000000000000000000)
+  directionHi := (113797743519046117951/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 16 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree016.table
+  base := (-2293243416963169259773083422523634281397/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-9612841432828924922854296628320000000000000)
+      constant := (49492166797194949839604486055243104515990326) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 16 interval.damping) (curvature.centralUpper 16 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree016.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 16 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree016.table
+  base := (-579567517353663823355643474039660401617/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-269342881649750127658060613160000000000000)
+      constant := (1400173620684831554644982665774594784253454) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 16 interval.damping) (curvature.centralUpper 16 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree016.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 16 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 16 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel016
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel017
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (2275954870380922359/2000000000000000000)
+  centralHi := (113797743519046117951/100000000000000000000)
+  directionLo := (117529804129399632567/100000000000000000000)
+  directionHi := (14691225516174954071/12500000000000000000)
+
+def endpointA : IntegerEndpointWitness 17 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree017.table
+  base := (-1279298334705425867151534802660031963169/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-10171263107962832734944280544700000000000000)
+      constant := (55469895491277042282162626284333865536079804) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 17 interval.damping) (curvature.centralUpper 17 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree017.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 17 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree017.table
+  base := (-2578147624812846572032013063337095962611/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-569999128260280132629578268360000000000000)
+      constant := (3140203473893446609801558398916030782318741) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 17 interval.damping) (curvature.centralUpper 17 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree017.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 17 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 17 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel017
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel018
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (117529804129399632567/100000000000000000000)
+  centralHi := (14691225516174954071/12500000000000000000)
+  directionLo := (121146949145917344087/100000000000000000000)
+  directionHi := (15143368643239668011/12500000000000000000)
+
+def endpointA : IntegerEndpointWitness 18 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree018.table
+  base := (-2788243748757954093904562511703324959973/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-3576561594365580182344754820360000000000000)
+      constant := (20646420786351665913781226915502828490587378) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 18 interval.damping) (curvature.centralUpper 18 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree018.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 18 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree018.table
+  base := (-700870500652617023274285542435069153859/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-300656246610530004971517655200000000000000)
+      constant := (1753787993433056234123728140136946625995658) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 18 interval.damping) (curvature.centralUpper 18 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree018.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 18 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 18 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel018
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel019
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (121146949145917344087/100000000000000000000)
+  centralHi := (15143368643239668011/12500000000000000000)
+  directionLo := (31164795559284440869/25000000000000000000)
+  directionHi := (124659182237137763477/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 19 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree019.table
+  base := (-2990992441710537451297784388289249861773/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-11288106458230648359124248377460000000000000)
+      constant := (68873474113368978312252733367561601920486534) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 19 interval.damping) (curvature.centralUpper 19 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree019.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 19 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree019.table
+  base := (-1501423671092219244516933649224751429411/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-316312929090919943628246176220000000000000)
+      constant := (1950507875366480717874685423791017008429541) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 19 interval.damping) (curvature.centralUpper 19 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree019.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 19 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 19 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel019
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel020
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (31164795559284440869/25000000000000000000)
+  centralHi := (124659182237137763477/100000000000000000000)
+  directionLo := (64037567381772793789/50000000000000000000)
+  directionHi := (128075134763545587579/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 20 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree020.table
+  base := (-3173296256375884496741406633603151489703/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-11846528133364556171214232293840000000000000)
+      constant := (76252899182556630051122905753179213168323474) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 20 interval.damping) (curvature.centralUpper 20 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree020.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 20 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree020.table
+  base := (-1591252760598689834324812511430139970037/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-331969611571309882284974697240000000000000)
+      constant := (2159732254084505204859422659968306345063747) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 20 interval.damping) (curvature.centralUpper 20 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree020.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 20 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 20 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel020
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel021
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (64037567381772793789/50000000000000000000)
+  centralHi := (128075134763545587579/100000000000000000000)
+  directionLo := (8212644731736658367/6250000000000000000)
+  directionHi := (131402315707786533873/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 21 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree021.table
+  base := (-1669943781890254376194546770300071423491/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-4134983269499487994434738736740000000000000)
+      constant := (28021047231318432941187583708063955153160252) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 21 interval.damping) (curvature.centralUpper 21 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree021.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 21 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree021.table
+  base := (-3347033600535619312664673089011826909197/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-695252588103399641883406436520000000000000)
+      constant := (4762148735884470012114156138257001252345707) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 21 interval.damping) (curvature.centralUpper 21 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree021.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 21 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 21 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel021
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel022
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (8212644731736658367/6250000000000000000)
+  centralHi := (131402315707786533873/100000000000000000000)
+  directionLo := (67323652979538409471/50000000000000000000)
+  directionHi := (134647305959076818943/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 22 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree022.table
+  base := (-1747119832620312023968719269073653178083/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-12963371483632371795394200126600000000000000)
+      constant := (92293635864961062159635232269985894064543028) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 22 interval.damping) (curvature.centralUpper 22 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree022.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 22 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree022.table
+  base := (-3499780193950055649325553715228748158827/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-726565953064179519196863478560000000000000)
+      constant := (5228502518155438442361637667646341561158237) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 22 interval.damping) (curvature.centralUpper 22 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree022.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 22 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 22 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel022
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel023
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (67323652979538409471/50000000000000000000)
+  centralHi := (134647305959076818943/100000000000000000000)
+  directionLo := (34453977846093551629/25000000000000000000)
+  directionHi := (137815911384374206517/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 23 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree023.table
+  base := (-3638904176448728077965676314506327292039/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-13521793158766279607484184042980000000000000)
+      constant := (100936619680637342072430317268869252377617362) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 23 interval.damping) (curvature.centralUpper 23 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree023.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 23 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree023.table
+  base := (-227699848619812379349078400290072577539/625000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-378939659012479698255160260300000000000000)
+      constant := (2859055710128709706695117510037821875167272) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 23 interval.damping) (curvature.centralUpper 23 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree023.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 23 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 23 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel023
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel024
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (34453977846093551629/25000000000000000000)
+  centralHi := (137815911384374206517/100000000000000000000)
+  directionLo := (2818265697862720977/2000000000000000000)
+  directionHi := (140913284893136048851/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 24 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree024.table
+  base := (-151030300190832407865657119854603102681/400000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-4693404944633395806524722653120000000000000)
+      constant := (36662128369925599648856700884485811347036650) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 24 interval.damping) (curvature.centralUpper 24 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree024.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 24 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree024.table
+  base := (-472385438789435042203733967258233563323/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-394596341492869636911888781320000000000000)
+      constant := (3115335810554428109526248936693434111193652) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 24 interval.damping) (curvature.centralUpper 24 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree024.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 24 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 24 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel024
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel025
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (2818265697862720977/2000000000000000000)
+  centralHi := (140913284893136048851/100000000000000000000)
+  directionLo := (17993003105392525567/12500000000000000000)
+  directionHi := (143944024843140204537/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 25 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree025.table
+  base := (-976545254716502620038422375349073953237/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-14638636509034095231664151875740000000000000)
+      constant := (119438730028918328670287662842189968137012184) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 25 interval.damping) (curvature.centralUpper 25 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree025.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 25 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree025.table
+  base := (-488594676536370715441232146629441640137/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-410253023973259575568617302340000000000000)
+      constant := (3382980069268082783353259965628497451267388) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 25 interval.damping) (curvature.centralUpper 25 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree025.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 25 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 25 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel025
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel026
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (17993003105392525567/12500000000000000000)
+  centralHi := (143944024843140204537/100000000000000000000)
+  directionLo := (146912255161749540709/100000000000000000000)
+  directionHi := (14691225516174954071/10000000000000000000)
+
+def endpointA : IntegerEndpointWitness 26 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree026.table
+  base := (-4031192831534606504918220313017001691607/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 2340000000000000000000000000000000000000000
+      center := (3531)
+      previous := (0)
+      next := (1617)
+      square := (31313364960779877313457042040000000000000)
+      linear := (-1169004475705231003365702753240000000000000)
+      constant := (9945427487609498988932789037424021604163962) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 26 interval.damping) (curvature.centralUpper 26 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree026.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 26 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree026.table
+  base := (-403318881327222945185093536151645989449/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 65000000000000000000000000000000000000000
+      center := (99)
+      previous := (0)
+      next := (44)
+      square := (869815693354996592040473390000000000000)
+      linear := (-32762285111819193401949678720000000000000)
+      constant := (281685120079457093976949758750143010685815) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 26 interval.damping) (curvature.centralUpper 26 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree026.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 26 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 26 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel026
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel027
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (146912255161749540709/100000000000000000000)
+  centralHi := (14691225516174954071/10000000000000000000)
+  directionLo := (1498216911711366471/1000000000000000000)
+  directionHi := (149821691171136647101/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 27 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree027.table
+  base := (-2075772127991522172248746366238168015291/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-5251826619767303618614706569500000000000000)
+      constant := (46513193848339421516102948615341495264989852) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 27 interval.damping) (curvature.centralUpper 27 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree027.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 27 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree027.table
+  base := (-2076545529916492038564825402065427666511/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-441566388934039452882074344380000000000000)
+      constant := (3952055008063527713709171620760942724359641) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 27 interval.damping) (curvature.centralUpper 27 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree027.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 27 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 27 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel027
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel028
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (1498216911711366471/1000000000000000000)
+  centralHi := (149821691171136647101/100000000000000000000)
+  directionLo := (38168923529200988043/25000000000000000000)
+  directionHi := (152675694116803952173/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 28 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree028.table
+  base := (-4267790456927083861251527763626363875407/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-16313901534435818667934103624880000000000000)
+      constant := (150184113836137320245536244027008601091011906) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 28 interval.damping) (curvature.centralUpper 28 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree028.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 28 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree028.table
+  base := (-4268989734468072939019770015111457357437/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-914446142828858783077605730800000000000000)
+      constant := (8506761997278049994357981932406163706593147) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 28 interval.damping) (curvature.centralUpper 28 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree028.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 28 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 28 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel028
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel029
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (38168923529200988043/25000000000000000000)
+  centralHi := (152675694116803952173/100000000000000000000)
+  directionLo := (155477316682261805479/100000000000000000000)
+  directionHi := (3886932917056545137/2500000000000000000)
+
+def endpointA : IntegerEndpointWitness 29 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree029.table
+  base := (-4380342240881920124241022878734766496207/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-16872323209569726480024087541260000000000000)
+      constant := (161222904538861430547725810318826340318538306) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 29 interval.damping) (curvature.centralUpper 29 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree029.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 29 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree029.table
+  base := (-4381272650567058997548325118701639812343/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-945759507789638660391062772840000000000000)
+      constant := (9131703525056032003975041371159422871714033) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 29 interval.damping) (curvature.centralUpper 29 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree029.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 29 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 29 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel029
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel030
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (155477316682261805479/100000000000000000000)
+  centralHi := (3886932917056545137/2500000000000000000)
+  directionLo := (158229341246763601947/100000000000000000000)
+  directionHi := (39557335311690900487/25000000000000000000)
+
+def endpointA : IntegerEndpointWitness 30 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree030.table
+  base := (-448950405267790323299201094470038885989/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-5810248294901211430704690485880000000000000)
+      constant := (57551675844005556817373117580123805696071540) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 30 interval.damping) (curvature.centralUpper 30 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree030.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 30 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree030.table
+  base := (-449022641696248659966042854657235712613/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-488536436375209268852259907440000000000000)
+      constant := (4889443081284150730817898778414635822842015) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 30 interval.damping) (curvature.centralUpper 30 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree030.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 30 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 30 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel030
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel031
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (158229341246763601947/100000000000000000000)
+  centralHi := (39557335311690900487/25000000000000000000)
+  directionLo := (8046715612604499999/5000000000000000000)
+  directionHi := (160934312252089999981/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 31 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree031.table
+  base := (-1148875469304604839760674630492082604231/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-17989166559837542104204055374020000000000000)
+      constant := (184479795369526939224897646934769838871717192) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 31 interval.damping) (curvature.centralUpper 31 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree031.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 31 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree031.table
+  base := (-919212641046000684246224135896515256013/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1008386237711198415017976856920000000000000)
+      constant := (10448274052818573910117368665067444608669015) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 31 interval.damping) (curvature.centralUpper 31 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree031.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 31 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 31 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel031
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel032
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (8046715612604499999/5000000000000000000)
+  centralHi := (160934312252089999981/100000000000000000000)
+  directionLo := (40898640937629001537/25000000000000000000)
+  directionHi := (163594563750516006149/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 32 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree032.table
+  base := (-2349251874115103121043718201570137337149/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-18547588234971449916294039290400000000000000)
+      constant := (196696696892795500661910477790927284440785484) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 32 interval.damping) (curvature.centralUpper 32 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree032.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 32 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree032.table
+  base := (-4698940364685921281210421943466381969557/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1039699602671978292331433898960000000000000)
+      constant := (11139840603772392652017201243874181447144867) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 32 interval.damping) (curvature.centralUpper 32 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree032.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 32 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 32 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel032
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel033
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (40898640937629001537/25000000000000000000)
+  centralHi := (163594563750516006149/100000000000000000000)
+  directionLo := (83106121491425175651/50000000000000000000)
+  directionHi := (166212242982850351303/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 33 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree033.table
+  base := (-1199658709617941144344801233726581966213/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-6368669970035119242794674402260000000000000)
+      constant := (69768450442096998549399426364737483545040072) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 33 interval.damping) (curvature.centralUpper 33 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree033.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 33 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree033.table
+  base := (-47989748117395994785649751043940640079/100000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-535506483816379084822445470500000000000000)
+      constant := (5926783028278287982904966332908701591332450) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 33 interval.damping) (curvature.centralUpper 33 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree033.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 33 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 33 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel033
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel034
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (83106121491425175651/50000000000000000000)
+  centralHi := (166212242982850351303/100000000000000000000)
+  directionLo := (33757866132834004133/20000000000000000000)
+  directionHi := (84394665332085010333/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 34 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree034.table
+  base := (-979197715048024447744519393022736980691/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-19664431585239265540474007123160000000000000)
+      constant := (222305474464175865391647479401474170523689890) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 34 interval.damping) (curvature.centralUpper 34 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree034.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 34 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree034.table
+  base := (-489625359793547203147456809114902512527/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-551163166296769023479173991520000000000000)
+      constant := (6294717849730057251211589385457907376914685) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 34 interval.damping) (curvature.centralUpper 34 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree034.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 34 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 34 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel034
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel035
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (33757866132834004133/20000000000000000000)
+  centralHi := (84394665332085010333/50000000000000000000)
+  directionLo := (171327658522279951843/100000000000000000000)
+  directionHi := (42831914630569987961/25000000000000000000)
+
+def endpointA : IntegerEndpointWitness 35 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree035.table
+  base := (-4990634837688814219805419513837170960909/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-20222853260373173352563991039540000000000000)
+      constant := (235696853734065056441459769757644825936914822) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 35 interval.damping) (curvature.centralUpper 35 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree035.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 35 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree035.table
+  base := (-998168336201737437135086722318373168349/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1133639697554317924271805025080000000000000)
+      constant := (13347438554625768208327516231540974672745095) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 35 interval.damping) (curvature.centralUpper 35 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree035.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 35 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 35 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel035
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel036
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (171327658522279951843/100000000000000000000)
+  centralHi := (42831914630569987961/25000000000000000000)
+  directionLo := (10864307783149983377/6250000000000000000)
+  directionHi := (173828924530399734033/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 36 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree036.table
+  base := (-254131300479826229086719951650855968803/500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-6927091645169027054884658318640000000000000)
+      constant := (83159776594834603961249496098640640952675160) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 36 interval.damping) (curvature.centralUpper 36 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree036.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 36 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree036.table
+  base := (-1016557529331027402049261788638254697137/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1164953062515097801585262067120000000000000)
+      constant := (14127566411070931323848638447800674780919235) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 36 interval.damping) (curvature.centralUpper 36 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree036.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 36 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 36 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel036
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel037
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (10864307783149983377/6250000000000000000)
+  centralHi := (173828924530399734033/100000000000000000000)
+  directionLo := (176294706194099448851/100000000000000000000)
+  directionHi := (44073676548524862213/25000000000000000000)
+
+def endpointA : IntegerEndpointWitness 37 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree037.table
+  base := (-5172001454522197650851480865961745368901/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-21339696610640988976743958872300000000000000)
+      constant := (263652782871545823077781437281961870587803158) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 37 interval.damping) (curvature.centralUpper 37 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree037.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 37 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree037.table
+  base := (-517212792723480225016152074091235031103/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-598133213737938839449359554580000000000000)
+      constant := (7464906555863383551542942107502906398717965) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 37 interval.damping) (curvature.centralUpper 37 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree037.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 37 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 37 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel037
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel038
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (176294706194099448851/100000000000000000000)
+  centralHi := (44073676548524862213/25000000000000000000)
+  directionLo := (178726472187900264503/100000000000000000000)
+  directionHi := (22340809023487533063/12500000000000000000)
+
+def endpointA : IntegerEndpointWitness 38 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree038.table
+  base := (-2629395414573610714632978074034817578957/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-21898118285774896788833942788680000000000000)
+      constant := (278217122779566307721142153081882169849625612) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 38 interval.damping) (curvature.centralUpper 38 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree038.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 38 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree038.table
+  base := (-5258889916782509372016664243758498180771/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1227579792436657556212176151200000000000000)
+      constant := (15754174027001389873184597937764813807449701) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 38 interval.damping) (curvature.centralUpper 38 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree038.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 38 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 38 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel038
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel039
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (178726472187900264503/100000000000000000000)
+  centralHi := (22340809023487533063/12500000000000000000)
+  directionLo := (90562796292684015907/50000000000000000000)
+  directionHi := (36225118517073606363/20000000000000000000)
+
+def endpointA : IntegerEndpointWitness 39 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree039.table
+  base := (-5343016540028154570781815431954287878911/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 780000000000000000000000000000000000000000
+      center := (1177)
+      previous := (0)
+      next := (539)
+      square := (10437788320259959104485680680000000000000)
+      linear := (-575808716946379605151895556540000000000000)
+      constant := (7517237983277441394588689652170065545444942) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 39 interval.damping) (curvature.centralUpper 39 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree039.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 39 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree039.table
+  base := (-213723770984115139672874773250108989417/400000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 130000000000000000000000000000000000000000
+      center := (198)
+      previous := (0)
+      next := (88)
+      square := (1739631386709993184080946780000000000000)
+      linear := (-96837935184418264117356399480000000000000)
+      constant := (1276972743497870679579928282033714578439475) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 39 interval.damping) (curvature.centralUpper 39 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree039.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 39 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 39 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel039
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel040
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (90562796292684015907/50000000000000000000)
+  centralHi := (36225118517073606363/20000000000000000000)
+  directionLo := (45873336971266031339/25000000000000000000)
+  directionHi := (183493347885064125357/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 40 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree040.table
+  base := (-1356173892005936774323701377902323951271/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-23014961636042712413013910621440000000000000)
+      constant := (308518206920535225514624805592884522160934472) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 40 interval.damping) (curvature.centralUpper 40 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree040.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 40 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree040.table
+  base := (-678094578945008151305563137797451133319/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-645103261179108655419545117640000000000000)
+      constant := (8734612692761755845301354011648923033876356) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 40 interval.damping) (curvature.centralUpper 40 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree040.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 40 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 40 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel040
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel041
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (45873336971266031339/25000000000000000000)
+  centralHi := (183493347885064125357/100000000000000000000)
+  directionLo := (92915468500591449297/50000000000000000000)
+  directionHi := (37166187400236579719/20000000000000000000)
+
+def endpointA : IntegerEndpointWitness 41 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree041.table
+  base := (-5503840825340199247464386815970903129129/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-23573383311176620225103894537820000000000000)
+      constant := (324254860218780079972137801931814012681189582) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 41 interval.damping) (curvature.centralUpper 41 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree041.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 41 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree041.table
+  base := (-1100777771215428762196663055409355654991/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1321519887318997188152547277320000000000000)
+      constant := (18359911181391468887531831319679094471532605) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 41 interval.damping) (curvature.centralUpper 41 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree041.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 41 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 41 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel041
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel042
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (92915468500591449297/50000000000000000000)
+  centralHi := (37166187400236579719/20000000000000000000)
+  directionLo := (188139484360423523223/100000000000000000000)
+  directionHi := (23517435545052940403/12500000000000000000)
+
+def endpointA : IntegerEndpointWitness 42 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree042.table
+  base := (-2790231083319680336125914354354506583149/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-8043934995436842679064626151400000000000000)
+      constant := (113460737088224477041091234682379060649373828) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 42 interval.damping) (curvature.centralUpper 42 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree042.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 42 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree042.table
+  base := (-5580499995119341437251854011112632046281/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1352833252279777065466004319360000000000000)
+      constant := (19272701524139067038021946903241965184178511) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 42 interval.damping) (curvature.centralUpper 42 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree042.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 42 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 42 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel042
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel043
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (188139484360423523223/100000000000000000000)
+  centralHi := (23517435545052940403/12500000000000000000)
+  directionLo := (1487656611127547637/781250000000000000)
+  directionHi := (190420046224326097537/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 43 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree043.table
+  base := (-565456714372888170544385171336246889297/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-24690226661444435849283862370580000000000000)
+      constant := (356900237085616406652653308106248869627585260) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 43 interval.damping) (curvature.centralUpper 43 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree043.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 43 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree043.table
+  base := (-706824621861543797620879389949641779619/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-692073308620278471389730680700000000000000)
+      constant := (10103797621618772072386448169624042156977556) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 43 interval.damping) (curvature.centralUpper 43 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree043.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 43 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 43 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel043
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel044
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (1487656611127547637/781250000000000000)
+  centralHi := (190420046224326097537/100000000000000000000)
+  directionLo := (48168404084487094319/25000000000000000000)
+  directionHi := (192673616337948377277/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 44 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree044.table
+  base := (-114523231398002635156272032694297692639/200000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-25248648336578343661373846286960000000000000)
+      constant := (373808919997576660812704704570997320949608100) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 44 interval.damping) (curvature.centralUpper 44 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree044.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 44 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree044.table
+  base := (-1145237024723153379869906464752450098223/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1415459982201336820092918403440000000000000)
+      constant := (21164591438217788440314385768804179667001565) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 44 interval.damping) (curvature.centralUpper 44 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree044.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 44 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 44 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel044
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel045
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (48168404084487094319/25000000000000000000)
+  centralHi := (192673616337948377277/100000000000000000000)
+  directionLo := (97450565495295315961/50000000000000000000)
+  directionHi := (194901130990590631923/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 45 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree045.table
+  base := (-1159049988546691513325801816824088249877/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-8602356670570750491154610067780000000000000)
+      constant := (130369415439638259609552949507214372573123610) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 45 interval.damping) (curvature.centralUpper 45 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree045.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 45 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree045.table
+  base := (-1159053712465762965089433015436147515957/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1446773347162116697406375445480000000000000)
+      constant := (22143689412624171096861333704256455349016335) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 45 interval.damping) (curvature.centralUpper 45 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree045.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 45 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 45 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel045
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel046
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (97450565495295315961/50000000000000000000)
+  centralHi := (194901130990590631923/100000000000000000000)
+  directionLo := (24637934195209975101/12500000000000000000)
+  directionHi := (197103473561679800809/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 46 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree046.table
+  base := (-1172367152298992322946671177058849188689/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-26365491686846159285553814119720000000000000)
+      constant := (408798205404863276947706476650444903840040310) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 46 interval.damping) (curvature.centralUpper 46 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree046.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 46 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree046.table
+  base := (-1465462624411312416402711686313900052307/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-739043356061448287359916243760000000000000)
+      constant := (11572444312269483716920217893425901782320234) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 46 interval.damping) (curvature.centralUpper 46 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree046.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 46 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 46 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel046
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel047
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (24637934195209975101/12500000000000000000)
+  centralHi := (197103473561679800809/100000000000000000000)
+  directionLo := (199281478614416769899/100000000000000000000)
+  directionHi := (1992814786144167699/1000000000000000000)
+
+def endpointA : IntegerEndpointWitness 47 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree047.table
+  base := (-5925921765893064289277402443451355254783/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-26923913361980067097643798036100000000000000)
+      constant := (426878788921229140352134975804738477314950114) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 47 interval.damping) (curvature.centralUpper 47 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree047.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 47 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree047.table
+  base := (-740741680190738084882063390926375476631/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-754700038541838226016644764780000000000000)
+      constant := (12084094324720398315222099940243770177797444) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 47 interval.damping) (curvature.centralUpper 47 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree047.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 47 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 47 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel047
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel048
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (199281478614416769899/100000000000000000000)
+  centralHi := (1992814786144167699/1000000000000000000)
+  directionLo := (8057437423639522237/4000000000000000000)
+  directionHi := (100717967795494027963/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 48 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree048.table
+  base := (-2993755058029998312497477903311430839083/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-9160778345704658303244593984160000000000000)
+      constant := (148449996765630040744761368314804418258339676) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 48 interval.damping) (curvature.centralUpper 48 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree048.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 48 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree048.table
+  base := (-4790015501301125509311470861367406399/8000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-770356721022228164673373285800000000000000)
+      constant := (12606794576130428860074049238748067699105625) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 48 interval.damping) (curvature.centralUpper 48 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree048.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 48 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 48 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel048
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel049
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (8057437423639522237/4000000000000000000)
+  centralHi := (100717967795494027963/50000000000000000000)
+  directionLo := (12722974509733662681/6250000000000000000)
+  directionHi := (203567592155738602897/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 49 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree049.table
+  base := (-755825316065445999230382165008965761973/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-28040756712247882721823765868860000000000000)
+      constant := (464211804310168626484660544297179309216625072) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 49 interval.damping) (curvature.centralUpper 49 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree049.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 49 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree049.table
+  base := (-6046609880980273812085369366996718730411/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1572026807005236206660203613640000000000000)
+      constant := (26281089866311486241442432799597554534560541) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 49 interval.damping) (curvature.centralUpper 49 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree049.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 49 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 49 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel049
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel050
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (12722974509733662681/6250000000000000000)
+  centralHi := (203567592155738602897/100000000000000000000)
+  directionLo := (205677157226449356993/100000000000000000000)
+  directionHi := (102838578613224678497/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 50 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree050.table
+  base := (-6103200379161944606607278876236546274053/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-28599178387381790533913749785240000000000000)
+      constant := (483464226775643271490054584166238426234330774) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 50 interval.damping) (curvature.centralUpper 50 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree050.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 50 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree050.table
+  base := (-6103206222237920587138891155612848995979/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1603340171966016083973660655680000000000000)
+      constant := (27370690577359762037062417556701428519679549) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 50 interval.damping) (curvature.centralUpper 50 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree050.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 50 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 50 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel050
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel051
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (205677157226449356993/100000000000000000000)
+  centralHi := (102838578613224678497/50000000000000000000)
+  directionLo := (207765303728562939127/100000000000000000000)
+  directionHi := (25970662966070367391/12500000000000000000)
+
+def endpointA : IntegerEndpointWitness 51 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree051.table
+  base := (-6157304781339434318610860418032866724843/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-9719200020838566115334577900540000000000000)
+      constant := (167702418102153277584857642881747173141009198) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 51 interval.damping) (curvature.centralUpper 51 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree051.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 51 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree051.table
+  base := (-1539327357266624789456014866251292916627/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-817326768463397980643558848860000000000000)
+      constant := (14241195555780468214064985232757062994180074) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 51 interval.damping) (curvature.centralUpper 51 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree051.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 51 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 51 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel051
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel052
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (207765303728562939127/100000000000000000000)
+  centralHi := (25970662966070367391/12500000000000000000)
+  directionLo := (209832671102691845131/100000000000000000000)
+  directionHi := (52458167775672961283/25000000000000000000)
+
+def endpointA : IntegerEndpointWitness 52 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree052.table
+  base := (-6208916645347871106704790014925018924591/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 2340000000000000000000000000000000000000000
+      center := (3531)
+      previous := (0)
+      next := (1617)
+      square := (31313364960779877313457042040000000000000)
+      linear := (-2285847825973046627545670586000000000000000)
+      constant := (40241606471808503947741144002067545571645706) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 52 interval.damping) (curvature.centralUpper 52 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree052.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 52 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree052.table
+  base := (-194028760793115995846617787951353047073/312500000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 65000000000000000000000000000000000000000
+      center := (99)
+      previous := (0)
+      next := (44)
+      square := (869815693354996592040473390000000000000)
+      linear := (-64075650072599070715406720760000000000000)
+      constant := (1139084281780522835334091934026118566208816) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 52 interval.damping) (curvature.centralUpper 52 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree052.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 52 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 52 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel052
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel053
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (209832671102691845131/100000000000000000000)
+  centralHi := (52458167775672961283/25000000000000000000)
+  directionLo := (211879867591894840463/100000000000000000000)
+  directionHi := (13242491724493427529/6250000000000000000)
+
+def endpointA : IntegerEndpointWitness 53 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree053.table
+  base := (-3129018361868780917768436396714279481619/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-30274443412783513970183701534380000000000000)
+      constant := (543565113967537393705981791116287823633830004) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 53 interval.damping) (curvature.centralUpper 53 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree053.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 53 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree053.table
+  base := (-1564509917907940900633412354958459864843/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-848640133424177857957015890900000000000000)
+      constant := (15386045551590486641364345855254040565683066) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 53 interval.damping) (curvature.centralUpper 53 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree053.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 53 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 53 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel053
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel054
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (211879867591894840463/100000000000000000000)
+  centralHi := (13242491724493427529/6250000000000000000)
+  directionLo := (13369217020744446221/6250000000000000000)
+  directionHi := (213907472331911139537/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 54 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree054.table
+  base := (-788083205746893241704675089493436996469/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-10277621695972473927424561816920000000000000)
+      constant := (188126647297900947589674845921279239084643472) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 54 interval.damping) (curvature.centralUpper 54 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree054.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 54 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree054.table
+  base := (-6304667996344072792493148622322187311269/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1728593631809135593227488823840000000000000)
+      constant := (31950090342762955405866831939547550344395539) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 54 interval.damping) (curvature.centralUpper 54 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree054.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 54 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 54 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel054
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel055
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (13369217020744446221/6250000000000000000)
+  centralHi := (213907472331911139537/100000000000000000000)
+  directionLo := (53979009316177576701/25000000000000000000)
+  directionHi := (43183207452942061361/20000000000000000000)
+
+def endpointA : IntegerEndpointWitness 55 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree055.table
+  base := (-634880394501091512534119375587319390387/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-31391286763051329594363669367140000000000000)
+      constant := (585585366290772111084336589610471244144427460) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 55 interval.damping) (curvature.centralUpper 55 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree055.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 55 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree055.table
+  base := (-6348805820240744398011452420975054135137/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1759906996769915470540945865880000000000000)
+      constant := (33150188960417166349684850605555215851161847) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 55 interval.damping) (curvature.centralUpper 55 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree055.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 55 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 55 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel055
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel056
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (53979009316177576701/25000000000000000000)
+  centralHi := (43183207452942061361/20000000000000000000)
+  directionLo := (108953044446637894361/50000000000000000000)
+  directionHi := (217906088893275788723/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 56 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree056.table
+  base := (-3195226038849882838869281224715000609559/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-31949708438185237406453653283520000000000000)
+      constant := (607181385768992604207429222004993936291443044) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 56 interval.damping) (curvature.centralUpper 56 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree056.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 56 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree056.table
+  base := (-399403348423633246330628908124175194647/625000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-895610180865347673927201453960000000000000)
+      constant := (17186193441613741184465346959416115136837256) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 56 interval.damping) (curvature.centralUpper 56 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree056.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 56 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 56 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel056
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel057
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (108953044446637894361/50000000000000000000)
+  centralHi := (217906088893275788723/100000000000000000000)
+  directionLo := (109939064946715653599/50000000000000000000)
+  directionHi := (219878129893431307199/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 57 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree057.table
+  base := (-6429610440542348559422262770803168058227/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-10836043371106381739514545733300000000000000)
+      constant := (209722666374069780630614423757978087588957822) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 57 interval.damping) (curvature.centralUpper 57 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree057.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 57 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree057.table
+  base := (-1607402909103199699789634545783425785759/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-911266863345737612583929974980000000000000)
+      constant := (17808342023786372126460083184435202084413458) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 57 interval.damping) (curvature.centralUpper 57 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree057.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 57 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 57 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel057
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel058
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (109939064946715653599/50000000000000000000)
+  centralHi := (219878129893431307199/100000000000000000000)
+  directionLo := (221832640596691925179/100000000000000000000)
+  directionHi := (11091632029834596259/5000000000000000000)
+
+def endpointA : IntegerEndpointWitness 58 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree058.table
+  base := (-808284922731873612020444209898978316517/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-33066551788453053030633621116280000000000000)
+      constant := (651545205290844063104982567663408463689242288) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 58 interval.damping) (curvature.centralUpper 58 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree058.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 58 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree058.table
+  base := (-646628033762227215796126719298570305723/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-926923545826127551240658496000000000000000)
+      constant := (18441540198632124953580533207672708091664065) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 58 interval.damping) (curvature.centralUpper 58 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree058.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 58 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 58 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel058
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel059
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (221832640596691925179/100000000000000000000)
+  centralHi := (11091632029834596259/5000000000000000000)
+  directionLo := (55942520089133414569/25000000000000000000)
+  directionHi := (223770080356533658277/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 59 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree059.table
+  base := (-6500459211208094407154389884078227147697/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-33624973463586960842723605032660000000000000)
+      constant := (674313003333183587565065184947171533016705726) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 59 interval.damping) (curvature.centralUpper 59 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree059.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 59 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree059.table
+  base := (-3250229987722843049455994772415468862051/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-942580228306517489897387017020000000000000)
+      constant := (19085787941051192835964136000371785762313381) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 59 interval.damping) (curvature.centralUpper 59 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree059.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 59 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 59 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel059
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel060
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (55942520089133414569/25000000000000000000)
+  centralHi := (223770080356533658277/100000000000000000000)
+  directionLo := (22569088880909209353/10000000000000000000)
+  directionHi := (225690888809092093531/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 60 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree060.table
+  base := (-6532150206770469908534013431970570909373/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-11394465046240289551604529649680000000000000)
+      constant := (232490464134346137007131849606581841097895778) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 60 interval.damping) (curvature.centralUpper 60 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree060.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 60 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree060.table
+  base := (-6532150818125665550443489440063159055869/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-1916473821573814857108231076080000000000000)
+      constant := (39482170456754147934316642595029326119558139) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 60 interval.damping) (curvature.centralUpper 60 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree060.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 60 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 60 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel060
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel061
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (22569088880909209353/10000000000000000000)
+  centralHi := (225690888809092093531/100000000000000000000)
+  directionLo := (2275954870380922359/1000000000000000000)
+  directionHi := (227595487038092235901/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 61 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree061.table
+  base := (-3280676310522211874754460295424160013337/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-34741816813854776466903572865420000000000000)
+      constant := (721020371732296511475687497633936910478857692) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 61 interval.damping) (curvature.centralUpper 61 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree061.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 61 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree061.table
+  base := (-3280676555146500399175400361465166818549/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-973893593267297367210844059060000000000000)
+      constant := (20407432039938466568013408739262386807665219) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 61 interval.damping) (curvature.centralUpper 61 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree061.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 61 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 61 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel061
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel062
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (2275954870380922359/1000000000000000000)
+  centralHi := (227595487038092235901/100000000000000000000)
+  directionLo := (22948427865275401289/10000000000000000000)
+  directionHi := (229484278652754012891/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 62 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree062.table
+  base := (-3294033342680656612927227390052287109893/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-35300238488988684278993556781800000000000000)
+      constant := (744959940617247900034192436707951885223410988) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 62 interval.damping) (curvature.centralUpper 62 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree062.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 62 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree062.table
+  base := (-658806707703021811927971559625356401717/1000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-989550275747687305867572580080000000000000)
+      constant := (21084828356715897168152828884476573840549135) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 62 interval.damping) (curvature.centralUpper 62 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree062.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 62 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 62 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel062
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel063
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (22948427865275401289/10000000000000000000)
+  centralHi := (229484278652754012891/100000000000000000000)
+  directionLo := (231357650786489642139/100000000000000000000)
+  directionHi := (11567882539324482107/5000000000000000000)
+
+def endpointA : IntegerEndpointWitness 63 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree063.table
+  base := (-6612292613419932569843726906016903281717/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-11952886721374197363694513566060000000000000)
+      constant := (256430032802606948214111854221631360072338962) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 63 interval.damping) (curvature.centralUpper 63 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree063.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 63 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree063.table
+  base := (-6612292927070453168165730951563955429121/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2010413916456154489048602202200000000000000)
+      constant := (43546548322142831609469064491645691532478551) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 63 interval.damping) (curvature.centralUpper 63 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree063.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 63 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 63 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel063
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel064
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (231357650786489642139/100000000000000000000)
+  centralHi := (11567882539324482107/5000000000000000000)
+  directionLo := (233215975023392708219/100000000000000000000)
+  directionHi := (11660798751169635411/5000000000000000000)
+
+def endpointA : IntegerEndpointWitness 64 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree064.table
+  base := (-1658507651020990173030400947180048787463/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-36417081839256499903173524614560000000000000)
+      constant := (794010844499072034053935190637913166354150216) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 64 interval.damping) (curvature.centralUpper 64 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree064.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 64 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree064.table
+  base := (-6634030855327665286109007966027027336207/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2041727281416934366362059244240000000000000)
+      constant := (44945538873069585826871110407661432380181017) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 64 interval.damping) (curvature.centralUpper 64 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree064.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 64 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 64 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel064
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel065
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (233215975023392708219/100000000000000000000)
+  centralHi := (11660798751169635411/5000000000000000000)
+  directionLo := (47011921651759853027/20000000000000000000)
+  directionHi := (14691225516174954071/6250000000000000000)
+
+def endpointA : IntegerEndpointWitness 65 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree065.table
+  base := (-6653280843604369140987061438501881939427/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 2340000000000000000000000000000000000000000
+      center := (3531)
+      previous := (0)
+      next := (1617)
+      square := (31313364960779877313457042040000000000000)
+      linear := (-2844269501106954439635654502380000000000000)
+      constant := (63009398332648154832235833507978059626174082) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 65 interval.damping) (curvature.centralUpper 65 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree065.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 65 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree065.table
+  base := (-3326640522454203169678572506744029225081/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 65000000000000000000000000000000000000000
+      center := (99)
+      previous := (0)
+      next := (44)
+      square := (869815693354996592040473390000000000000)
+      linear := (-79732332552989009372135241780000000000000)
+      constant := (1783331859048732681658305822762327620073947) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 65 interval.damping) (curvature.centralUpper 65 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree065.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 65 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 65 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel065
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel066
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (47011921651759853027/20000000000000000000)
+  centralHi := (14691225516174954071/6250000000000000000)
+  directionLo := (47377778699913153221/20000000000000000000)
+  directionHi := (118444446749782883053/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 66 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree066.table
+  base := (-3335021753697179219665976215958227255809/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-12511308396508105175784497482440000000000000)
+      constant := (281541366450091941649030160674806715125219348) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 66 interval.damping) (curvature.centralUpper 66 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree066.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 66 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree066.table
+  base := (-6670043668720498538612283130633927134069/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2104354011338494120988973328320000000000000)
+      constant := (47809816679513801344594925608922866314342339) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 66 interval.damping) (curvature.centralUpper 66 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree066.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 66 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 66 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel066
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel067
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (47377778699913153221/20000000000000000000)
+  centralHi := (118444446749782883053/50000000000000000000)
+  directionLo := (11935208030457308713/5000000000000000000)
+  directionHi := (238704160609146174261/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 67 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree067.table
+  base := (-6684318761455127453456207192634306450651/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-38092346864658223339443476363700000000000000)
+      constant := (870516607071645823486724741551223939777119658) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 67 interval.damping) (curvature.centralUpper 67 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree067.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 67 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree067.table
+  base := (-3342159445383700648638925399667141750121/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-1067833688149636999151215185180000000000000)
+      constant := (24637551939046628025221426822766253044229551) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 67 interval.damping) (curvature.centralUpper 67 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree067.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 67 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 67 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel067
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel068
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (11935208030457308713/5000000000000000000)
+  centralHi := (238704160609146174261/100000000000000000000)
+  directionLo := (240505727002051849771/100000000000000000000)
+  directionHi := (60126431750512962443/25000000000000000000)
+
+def endpointA : IntegerEndpointWitness 68 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree068.table
+  base := (-6696106763528393584615468792884420289393/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-38650768539792131151533460280080000000000000)
+      constant := (896799701008685704103348947958405593479666494) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 68 interval.damping) (curvature.centralUpper 68 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree068.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 68 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree068.table
+  base := (-1674026716799186376224324833924594032061/2500000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-1083490370630026937807943706200000000000000)
+      constant := (25381244952308232110163446114613487217163382) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 68 interval.damping) (curvature.centralUpper 68 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree068.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 68 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 68 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel068
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel069
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (240505727002051849771/100000000000000000000)
+  centralHi := (60126431750512962443/25000000000000000000)
+  directionLo := (9691755931673387527/4000000000000000000)
+  directionHi := (15143368643239668011/6250000000000000000)
+
+def endpointA : IntegerEndpointWitness 69 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree069.table
+  base := (-6705407664034419883824257346200818925959/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-13069730071642012987874481398820000000000000)
+      constant := (307824460234605675531925643686864869609077574) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 69 interval.damping) (curvature.centralUpper 69 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree069.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 69 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree069.table
+  base := (-3352703873577985641794384334242875762217/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-1099147053110416876464672227220000000000000)
+      constant := (26135987366938754236804537856022953996185327) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 69 interval.damping) (curvature.centralUpper 69 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree069.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 69 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 69 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel069
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel070
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (9691755931673387527/4000000000000000000)
+  centralHi := (15143368643239668011/6250000000000000000)
+  directionLo := (1906788819502652893/781250000000000000)
+  directionHi := (48813793779267914061/20000000000000000000)
+
+def endpointA : IntegerEndpointWitness 70 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree070.table
+  base := (-3356110803420561018191498623980066113617/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-39767611890059946775713428112840000000000000)
+      constant := (950537645719393591449324799847055277764754172) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 70 interval.damping) (curvature.centralUpper 70 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree070.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 70 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree070.table
+  base := (-6712221673496081774365925359702797521363/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2229607471181613630242801496480000000000000)
+      constant := (53803558341734569279458094445010227218889653) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 70 interval.damping) (curvature.centralUpper 70 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree070.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 70 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 70 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel070
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel071
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (1906788819502652893/781250000000000000)
+  centralHi := (48813793779267914061/20000000000000000000)
+  directionLo := (245831222603620496231/100000000000000000000)
+  directionHi := (30728902825452562029/12500000000000000000)
+
+def endpointA : IntegerEndpointWitness 71 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree071.table
+  base := (-3358274364949840295831884690679737197749/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-40326033565193854587803412029220000000000000)
+      constant := (977992495635767907432802684271101978888895084) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 71 interval.damping) (curvature.centralUpper 71 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree071.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 71 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree071.table
+  base := (-6716548783355359317438848055579526667823/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2260920836142393507556258538520000000000000)
+      constant := (55357240705011276922378445136907059993137913) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 71 interval.damping) (curvature.centralUpper 71 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree071.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 71 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 71 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel071
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel072
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (245831222603620496231/100000000000000000000)
+  centralHi := (30728902825452562029/12500000000000000000)
+  directionLo := (9903237324064025719/4000000000000000000)
+  directionHi := (7736904159425020093/3125000000000000000)
+
+def endpointA : IntegerEndpointWitness 72 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree072.table
+  base := (-6718389165774257117900846593173285102571/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-13628151746775920799964465315200000000000000)
+      constant := (335279310016559931685213975444282288905993006) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 72 interval.damping) (curvature.centralUpper 72 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree072.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 72 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree072.table
+  base := (-167959730216195738754256992208041519311/250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-1146117100551586692434857790280000000000000)
+      constant := (28466510900707080534827912116096819664728820) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 72 interval.damping) (curvature.centralUpper 72 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree072.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 72 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 72 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel072
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel073
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (9903237324064025719/4000000000000000000)
+  centralHi := (7736904159425020093/3125000000000000000)
+  directionLo := (249318364474275526953/100000000000000000000)
+  directionHi := (124659182237137763477/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 73 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree073.table
+  base := (-3358871521043682158312233731780370726067/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-41442876915461670211983379861980000000000000)
+      constant := (1034073948572901570679787540271445724502608372) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 73 interval.damping) (curvature.centralUpper 73 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree073.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 73 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree073.table
+  base := (-3358871538237904469509055528520209711061/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-1161773783031976631091586311300000000000000)
+      constant := (29265450804731465119229424092910084558830691) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 73 interval.damping) (curvature.centralUpper 73 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree073.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 73 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 73 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel073
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel074
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (249318364474275526953/100000000000000000000)
+  centralHi := (124659182237137763477/50000000000000000000)
+  directionLo := (50208754333401315061/20000000000000000000)
+  directionHi := (125521885833503287653/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 74 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree074.table
+  base := (-6714610481897756410476652638494623335667/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-42001298590595578024073363778360000000000000)
+      constant := (1062700550831088503959962499281849355812900986) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 74 interval.damping) (curvature.centralUpper 74 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree074.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 74 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree074.table
+  base := (-839326313685207029456481933593264634791/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-1177430465512366569748314832320000000000000)
+      constant := (30075440054215512899877684624450953106881284) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 74 interval.damping) (curvature.centralUpper 74 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree074.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 74 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 74 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel074
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel075
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (50208754333401315061/20000000000000000000)
+  centralHi := (125521885833503287653/50000000000000000000)
+  directionLo := (252757400923226328227/100000000000000000000)
+  directionHi := (63189350230806582057/25000000000000000000)
+
+def endpointA : IntegerEndpointWitness 75 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree075.table
+  base := (-419311975251504516180810504126371110191/625000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-14186573421909828612054449231580000000000000)
+      constant := (363905912154264765161921270583366255108261216) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 75 interval.damping) (curvature.centralUpper 75 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree075.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 75 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree075.table
+  base := (-419311976634411377435484819960141821467/625000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-1193087147992756508405043353340000000000000)
+      constant := (30896478639147223581165961076163888257376616) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 75 interval.damping) (curvature.centralUpper 75 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree075.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 75 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 75 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel075
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel076
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (252757400923226328227/100000000000000000000)
+  centralHi := (63189350230806582057/25000000000000000000)
+  directionLo := (12722974509733662681/5000000000000000000)
+  directionHi := (254459490194673253621/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 76 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree076.table
+  base := (-1340177304664927778598514009381094861009/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-43118141940863393648253331611120000000000000)
+      constant := (1121125505118619914428527004209273547164053110) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 76 interval.damping) (curvature.centralUpper 76 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree076.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 76 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree076.table
+  base := (-6700886541073834573292707904697469817341/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2417487660946292894123543748720000000000000)
+      constant := (63457133099687273376277262165706127600869371) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 76 interval.damping) (curvature.centralUpper 76 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree076.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 76 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 76 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel076
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel077
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (12722974509733662681/5000000000000000000)
+  centralHi := (254459490194673253621/100000000000000000000)
+  directionLo := (256150269527091175157/100000000000000000000)
+  directionHi := (128075134763545587579/50000000000000000000)
+
+def endpointA : IntegerEndpointWitness 77 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree077.table
+  base := (-6690295350941643133834321263279814144883/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-43676563615997301460343315527500000000000000)
+      constant := (1150923856460470828478591016380320305371265914) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 77 interval.damping) (curvature.centralUpper 77 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree077.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 77 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree077.table
+  base := (-6690295365179606870247053339048031030939/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2448801025907072771437000790760000000000000)
+      constant := (65143407553862639819247550897120882755771309) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 77 interval.damping) (curvature.centralUpper 77 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree077.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 77 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 77 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel077
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel078
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (256150269527091175157/100000000000000000000)
+  centralHi := (128075134763545587579/50000000000000000000)
+  directionLo := (128914980711581668053/50000000000000000000)
+  directionHi := (257829961423163336107/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 78 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree078.table
+  base := (-3338609097258081108646172576550909241011/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 780000000000000000000000000000000000000000
+      center := (1177)
+      previous := (0)
+      next := (539)
+      square := (10437788320259959104485680680000000000000)
+      linear := (-1134230392080287417241879472920000000000000)
+      constant := (30284943337459048222677609352948058158402284) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 78 interval.damping) (curvature.centralUpper 78 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree078.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 78 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree078.table
+  base := (-6677218205937472726237418932253100918787/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 130000000000000000000000000000000000000000
+      center := (198)
+      previous := (0)
+      next := (88)
+      square := (1739631386709993184080946780000000000000)
+      linear := (-190778030066757896057727525600000000000000)
+      constant := (5142444663281399116896159125800709688055769) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 78 interval.damping) (curvature.centralUpper 78 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree078.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 78 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 78 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel078
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel079
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (128914980711581668053/50000000000000000000)
+  centralHi := (257829961423163336107/100000000000000000000)
+  directionLo := (129749390592151081451/50000000000000000000)
+  directionHi := (259498781184302162903/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 79 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree079.table
+  base := (-6661655158379202154993876103787840199243/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-44793406966265117084523283360260000000000000)
+      constant := (1211692305902541150758664202356714890113902794) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 79 interval.damping) (curvature.centralUpper 79 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree079.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 79 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree079.table
+  base := (-6661655167540957786877671169836704572271/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2511427755828632526063914874840000000000000)
+      constant := (68582252288465213643376071944517596927286201) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 79 interval.damping) (curvature.centralUpper 79 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree079.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 79 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 79 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel079
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel080
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (129749390592151081451/50000000000000000000)
+  centralHi := (259498781184302162903/100000000000000000000)
+  directionLo := (261156937232781113871/100000000000000000000)
+  directionHi := (16322308577048819617/6250000000000000000)
+
+def endpointA : IntegerEndpointWitness 80 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree080.table
+  base := (-830450792965355145133181400643343404123/1250000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-45351828641399024896613267276640000000000000)
+      constant := (1242662403377559336773930403328343594917262672) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 80 interval.damping) (curvature.centralUpper 80 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree080.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 80 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree080.table
+  base := (-6643606351071912252682547545559955940037/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2542741120789412403377371916880000000000000)
+      constant := (70334822534200882506538570188000367446133747) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 80 interval.damping) (curvature.centralUpper 80 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree080.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 80 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 80 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel080
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel081
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (261156937232781113871/100000000000000000000)
+  centralHi := (16322308577048819617/6250000000000000000)
+  directionLo := (8212644731736658367/3125000000000000000)
+  directionHi := (52560926283114613549/20000000000000000000)
+
+def endpointA : IntegerEndpointWitness 81 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree081.table
+  base := (-6623071848754750239809090646665336868263/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-15303416772177644236234417064340000000000000)
+      constant := (424674360762403234511712874087813848415581318) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 81 interval.damping) (curvature.centralUpper 81 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree081.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 81 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree081.table
+  base := (-1324614370929922943097692396486526438689/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2574054485750192280690828958920000000000000)
+      constant := (72109491343283037027117209412868885159307795) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 81 interval.damping) (curvature.centralUpper 81 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree081.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 81 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 81 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel081
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel082
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (8212644731736658367/3125000000000000000)
+  centralHi := (52560926283114613549/20000000000000000000)
+  directionLo := (66110514822787293319/25000000000000000000)
+  directionHi := (264442059291149173277/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 82 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree082.table
+  base := (-3300025884419356998455316905734082457703/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-46468671991666840520793235109400000000000000)
+      constant := (1305774342341395618271792535758543842327334948) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 82 interval.damping) (curvature.centralUpper 82 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree082.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 82 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree082.table
+  base := (-3300025886783478756354332675946163945097/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 845000000000000000000000000000000000000000
+      center := (1287)
+      previous := (0)
+      next := (572)
+      square := (11307604013614955696526154070000000000000)
+      linear := (-1302683925355486079002143000480000000000000)
+      constant := (36953129349803589200044575110925098293278607) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 82 interval.damping) (curvature.centralUpper 82 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree082.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 82 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 82 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel082
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel083
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (66110514822787293319/25000000000000000000)
+  centralHi := (264442059291149173277/100000000000000000000)
+  directionLo := (259833408594132571/97656250000000000)
+  directionHi := (53213882080078350541/20000000000000000000)
+
+def endpointA : IntegerEndpointWitness 83 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree083.table
+  base := (-1314909239324652642586329893502358144771/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-47027093666800748332883219025780000000000000)
+      constant := (1337916183258280250349423851621526632618033090) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 83 interval.damping) (curvature.centralUpper 83 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree083.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 83 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree083.table
+  base := (-6574546200415607911601243409219676620767/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2636681215671752035317743043000000000000000)
+      constant := (75725124587525314857287776122301874651090377) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 83 interval.damping) (curvature.centralUpper 83 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree083.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 83 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 83 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel083
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel084
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (259833408594132571/97656250000000000)
+  centralHi := (53213882080078350541/20000000000000000000)
+  directionLo := (133843434261341836623/50000000000000000000)
+  directionHi := (267686868522683673247/100000000000000000000)
+
+def endpointA : IntegerEndpointWitness 84 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree084.table
+  base := (-1309311044432025336969115499934562731299/2000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 10140000000000000000000000000000000000000000
+      center := (15301)
+      previous := (0)
+      next := (7007)
+      square := (135691248163379468358313848840000000000000)
+      linear := (-15861838447311552048324400980720000000000000)
+      constant := (456816201587975413589213121907531766952314070) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 84 interval.damping) (curvature.centralUpper 84 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree084.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 84 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree084.table
+  base := (-6546555225201679432035144396642703503857/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2667994580632531912631200085040000000000000)
+      constant := (77566088991826413213855234861287383107848167) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 84 interval.damping) (curvature.centralUpper 84 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree084.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 84 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 84 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel084
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel085
+open FiniteKernelRationalCertificate FiniteKernelCurvatureCertificate BinomialMassIntervalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+def curvature : DegreeWitness where
+  centralLo := (133843434261341836623/50000000000000000000)
+  centralHi := (267686868522683673247/100000000000000000000)
+  directionLo := (67323652979538409471/25000000000000000000)
+  directionHi := (53858922383630727577/20000000000000000000)
+
+def endpointA : IntegerEndpointWitness 85 where
+  qNumerator := 107
+  qDenominator := 156
+  table := BinomialMassData.Q107_156.Degree085.table
+  base := (-3258039466506944986520243420936129013327/5000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 30420000000000000000000000000000000000000000
+      center := (45903)
+      previous := (0)
+      next := (21021)
+      square := (407073744490138405074941546520000000000000)
+      linear := (-48143937017068563957063186858540000000000000)
+      constant := (1403371606591962120251738572364762091082918532) }
+
+theorem endpointA_checked : endpointA.check row interval.lo interval.hi
+    (curvature.directionUpper 85 interval.damping) (curvature.centralUpper 85 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q107_156.Degree085.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointA.polynomial).streamCheck_sound endpointA.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+
+def endpointB : IntegerEndpointWitness 85 where
+  qNumerator := 9
+  qDenominator := 13
+  table := BinomialMassData.Q9_13.Degree085.table
+  base := (-6516078935453162746936641361714117830827/10000000000000000000000000000000000000000)
+  polynomial :=
+    { denominator := 1690000000000000000000000000000000000000000
+      center := (2574)
+      previous := (0)
+      next := (1144)
+      square := (22615208027229911393052308140000000000000)
+      linear := (-2699307945593311789944657127080000000000000)
+      constant := (79429151897718243046066986293770314086590237) }
+
+theorem endpointB_checked : endpointB.check row interval.lo interval.hi
+    (curvature.directionUpper 85 interval.damping) (curvature.centralUpper 85 interval.damping) = true := by
+  simp only [IntegerEndpointWitness.check, Bool.and_eq_true_iff, and_assoc]
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact BinomialMassData.Q9_13.Degree085.checked
+  · decide +kernel
+  · decide +kernel
+  · apply (endpointB.polynomial).streamCheck_sound endpointB.table (by decide +kernel) (by decide +kernel)
+    decide +kernel
+  · decide +kernel
+  · decide +kernel
+
+def witness : IntegerDegreeWitness 85 := ⟨curvature,endpointA,endpointB⟩
+
+theorem checked : witness.check row interval = true := by
+  simp only [IntegerDegreeWitness.check, Bool.and_eq_true_iff, and_assoc]
+  exact ⟨by decide +kernel, by decide +kernel, endpointA_checked, endpointB_checked⟩
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 85 j q :=
+  witness.check_sound row interval row_checked interval_checked checked j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel085
+
+namespace ForestUnimodality.Stage170KernelData.Cell345
+open FiniteKernelRationalCertificate
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+theorem degreePropagationThreshold : row.degreePropagationCheck 85 interval.lo interval.hi = true := by
+  decide +kernel
+
+theorem degreePropagationTail (n : ℕ) (hn : 85 ≤ n) (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual n j q :=
+  row.degreePropagationCheck_sound 85 interval.lo interval.hi degreePropagationThreshold
+    (fun _q hq j => Kernel085.actual_residual_nonneg j hq) n hn q hq j
+end ForestUnimodality.Stage170KernelData.Cell345
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel086
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 86 j q :=
+  degreePropagationTail 86 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel086
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel087
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 87 j q :=
+  degreePropagationTail 87 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel087
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel088
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 88 j q :=
+  degreePropagationTail 88 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel088
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel089
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 89 j q :=
+  degreePropagationTail 89 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel089
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel090
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 90 j q :=
+  degreePropagationTail 90 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel090
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel091
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 91 j q :=
+  degreePropagationTail 91 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel091
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel092
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 92 j q :=
+  degreePropagationTail 92 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel092
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel093
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 93 j q :=
+  degreePropagationTail 93 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel093
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel094
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 94 j q :=
+  degreePropagationTail 94 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel094
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel095
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 95 j q :=
+  degreePropagationTail 95 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel095
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel096
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 96 j q :=
+  degreePropagationTail 96 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel096
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel097
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 97 j q :=
+  degreePropagationTail 97 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel097
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel098
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 98 j q :=
+  degreePropagationTail 98 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel098
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel099
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 99 j q :=
+  degreePropagationTail 99 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel099
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel100
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 100 j q :=
+  degreePropagationTail 100 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel100
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel101
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 101 j q :=
+  degreePropagationTail 101 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel101
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel102
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 102 j q :=
+  degreePropagationTail 102 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel102
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel103
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 103 j q :=
+  degreePropagationTail 103 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel103
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel104
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 104 j q :=
+  degreePropagationTail 104 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel104
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel105
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 105 j q :=
+  degreePropagationTail 105 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel105
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel106
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 106 j q :=
+  degreePropagationTail 106 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel106
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel107
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 107 j q :=
+  degreePropagationTail 107 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel107
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel108
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 108 j q :=
+  degreePropagationTail 108 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel108
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel109
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 109 j q :=
+  degreePropagationTail 109 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel109
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel110
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 110 j q :=
+  degreePropagationTail 110 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel110
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel111
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 111 j q :=
+  degreePropagationTail 111 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel111
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel112
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 112 j q :=
+  degreePropagationTail 112 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel112
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel113
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 113 j q :=
+  degreePropagationTail 113 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel113
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel114
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 114 j q :=
+  degreePropagationTail 114 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel114
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel115
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 115 j q :=
+  degreePropagationTail 115 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel115
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel116
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 116 j q :=
+  degreePropagationTail 116 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel116
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel117
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 117 j q :=
+  degreePropagationTail 117 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel117
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel118
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 118 j q :=
+  degreePropagationTail 118 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel118
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel119
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 119 j q :=
+  degreePropagationTail 119 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel119
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel120
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 120 j q :=
+  degreePropagationTail 120 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel120
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel121
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 121 j q :=
+  degreePropagationTail 121 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel121
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel122
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 122 j q :=
+  degreePropagationTail 122 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel122
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel123
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 123 j q :=
+  degreePropagationTail 123 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel123
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel124
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 124 j q :=
+  degreePropagationTail 124 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel124
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel125
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 125 j q :=
+  degreePropagationTail 125 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel125
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel126
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 126 j q :=
+  degreePropagationTail 126 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel126
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel127
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 127 j q :=
+  degreePropagationTail 127 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel127
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel128
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 128 j q :=
+  degreePropagationTail 128 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel128
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel129
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 129 j q :=
+  degreePropagationTail 129 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel129
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel130
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 130 j q :=
+  degreePropagationTail 130 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel130
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel131
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 131 j q :=
+  degreePropagationTail 131 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel131
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel132
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 132 j q :=
+  degreePropagationTail 132 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel132
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel133
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 133 j q :=
+  degreePropagationTail 133 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel133
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel134
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 134 j q :=
+  degreePropagationTail 134 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel134
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel135
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 135 j q :=
+  degreePropagationTail 135 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel135
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel136
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 136 j q :=
+  degreePropagationTail 136 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel136
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel137
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 137 j q :=
+  degreePropagationTail 137 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel137
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel138
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 138 j q :=
+  degreePropagationTail 138 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel138
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel139
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 139 j q :=
+  degreePropagationTail 139 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel139
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel140
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 140 j q :=
+  degreePropagationTail 140 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel140
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel141
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 141 j q :=
+  degreePropagationTail 141 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel141
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel142
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 142 j q :=
+  degreePropagationTail 142 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel142
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel143
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 143 j q :=
+  degreePropagationTail 143 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel143
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel144
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 144 j q :=
+  degreePropagationTail 144 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel144
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel145
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 145 j q :=
+  degreePropagationTail 145 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel145
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel146
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 146 j q :=
+  degreePropagationTail 146 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel146
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel147
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 147 j q :=
+  degreePropagationTail 147 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel147
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel148
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 148 j q :=
+  degreePropagationTail 148 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel148
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel149
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 149 j q :=
+  degreePropagationTail 149 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel149
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel150
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 150 j q :=
+  degreePropagationTail 150 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel150
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel151
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 151 j q :=
+  degreePropagationTail 151 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel151
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel152
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 152 j q :=
+  degreePropagationTail 152 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel152
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel153
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 153 j q :=
+  degreePropagationTail 153 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel153
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel154
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 154 j q :=
+  degreePropagationTail 154 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel154
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel155
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 155 j q :=
+  degreePropagationTail 155 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel155
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel156
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 156 j q :=
+  degreePropagationTail 156 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel156
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel157
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 157 j q :=
+  degreePropagationTail 157 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel157
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel158
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 158 j q :=
+  degreePropagationTail 158 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel158
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel159
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 159 j q :=
+  degreePropagationTail 159 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel159
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel160
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 160 j q :=
+  degreePropagationTail 160 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel160
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel161
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 161 j q :=
+  degreePropagationTail 161 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel161
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel162
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 162 j q :=
+  degreePropagationTail 162 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel162
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel163
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 163 j q :=
+  degreePropagationTail 163 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel163
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel164
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 164 j q :=
+  degreePropagationTail 164 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel164
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel165
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 165 j q :=
+  degreePropagationTail 165 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel165
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel166
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 166 j q :=
+  degreePropagationTail 166 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel166
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel167
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 167 j q :=
+  degreePropagationTail 167 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel167
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel168
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 168 j q :=
+  degreePropagationTail 168 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel168
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel169
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 169 j q :=
+  degreePropagationTail 169 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel169
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel170
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 170 j q :=
+  degreePropagationTail 170 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel170
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel171
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 171 j q :=
+  degreePropagationTail 171 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel171
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel172
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 172 j q :=
+  degreePropagationTail 172 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel172
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel173
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 173 j q :=
+  degreePropagationTail 173 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel173
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel174
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 174 j q :=
+  degreePropagationTail 174 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel174
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel175
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 175 j q :=
+  degreePropagationTail 175 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel175
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel176
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 176 j q :=
+  degreePropagationTail 176 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel176
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel177
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 177 j q :=
+  degreePropagationTail 177 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel177
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel178
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 178 j q :=
+  degreePropagationTail 178 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel178
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel179
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 179 j q :=
+  degreePropagationTail 179 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel179
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel180
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 180 j q :=
+  degreePropagationTail 180 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel180
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel181
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 181 j q :=
+  degreePropagationTail 181 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel181
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel182
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 182 j q :=
+  degreePropagationTail 182 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel182
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel183
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 183 j q :=
+  degreePropagationTail 183 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel183
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel184
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 184 j q :=
+  degreePropagationTail 184 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel184
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel185
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 185 j q :=
+  degreePropagationTail 185 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel185
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel186
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 186 j q :=
+  degreePropagationTail 186 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel186
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel187
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 187 j q :=
+  degreePropagationTail 187 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel187
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel188
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 188 j q :=
+  degreePropagationTail 188 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel188
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel189
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 189 j q :=
+  degreePropagationTail 189 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel189
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel190
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 190 j q :=
+  degreePropagationTail 190 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel190
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel191
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 191 j q :=
+  degreePropagationTail 191 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel191
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel192
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 192 j q :=
+  degreePropagationTail 192 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel192
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel193
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 193 j q :=
+  degreePropagationTail 193 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel193
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel194
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 194 j q :=
+  degreePropagationTail 194 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel194
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel195
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 195 j q :=
+  degreePropagationTail 195 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel195
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel196
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 196 j q :=
+  degreePropagationTail 196 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel196
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel197
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 197 j q :=
+  degreePropagationTail 197 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel197
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel198
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 198 j q :=
+  degreePropagationTail 198 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel198
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel199
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 199 j q :=
+  degreePropagationTail 199 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel199
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel200
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 200 j q :=
+  degreePropagationTail 200 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel200
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel201
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 201 j q :=
+  degreePropagationTail 201 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel201
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel202
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 202 j q :=
+  degreePropagationTail 202 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel202
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel203
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 203 j q :=
+  degreePropagationTail 203 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel203
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel204
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 204 j q :=
+  degreePropagationTail 204 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel204
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel205
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 205 j q :=
+  degreePropagationTail 205 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel205
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel206
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 206 j q :=
+  degreePropagationTail 206 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel206
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel207
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 207 j q :=
+  degreePropagationTail 207 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel207
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel208
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 208 j q :=
+  degreePropagationTail 208 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel208
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel209
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 209 j q :=
+  degreePropagationTail 209 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel209
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel210
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 210 j q :=
+  degreePropagationTail 210 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel210
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel211
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 211 j q :=
+  degreePropagationTail 211 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel211
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel212
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 212 j q :=
+  degreePropagationTail 212 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel212
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel213
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 213 j q :=
+  degreePropagationTail 213 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel213
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel214
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 214 j q :=
+  degreePropagationTail 214 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel214
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel215
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 215 j q :=
+  degreePropagationTail 215 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel215
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel216
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 216 j q :=
+  degreePropagationTail 216 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel216
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel217
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 217 j q :=
+  degreePropagationTail 217 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel217
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel218
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 218 j q :=
+  degreePropagationTail 218 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel218
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel219
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 219 j q :=
+  degreePropagationTail 219 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel219
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel220
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 220 j q :=
+  degreePropagationTail 220 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel220
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel221
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 221 j q :=
+  degreePropagationTail 221 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel221
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel222
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 222 j q :=
+  degreePropagationTail 222 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel222
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel223
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 223 j q :=
+  degreePropagationTail 223 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel223
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel224
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 224 j q :=
+  degreePropagationTail 224 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel224
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel225
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 225 j q :=
+  degreePropagationTail 225 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel225
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel226
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 226 j q :=
+  degreePropagationTail 226 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel226
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel227
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 227 j q :=
+  degreePropagationTail 227 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel227
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel228
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 228 j q :=
+  degreePropagationTail 228 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel228
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel229
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 229 j q :=
+  degreePropagationTail 229 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel229
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel230
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 230 j q :=
+  degreePropagationTail 230 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel230
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel231
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 231 j q :=
+  degreePropagationTail 231 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel231
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel232
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 232 j q :=
+  degreePropagationTail 232 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel232
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel233
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 233 j q :=
+  degreePropagationTail 233 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel233
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel234
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 234 j q :=
+  degreePropagationTail 234 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel234
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel235
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 235 j q :=
+  degreePropagationTail 235 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel235
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel236
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 236 j q :=
+  degreePropagationTail 236 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel236
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel237
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 237 j q :=
+  degreePropagationTail 237 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel237
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel238
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 238 j q :=
+  degreePropagationTail 238 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel238
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel239
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 239 j q :=
+  degreePropagationTail 239 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel239
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel240
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 240 j q :=
+  degreePropagationTail 240 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel240
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel241
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 241 j q :=
+  degreePropagationTail 241 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel241
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel242
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 242 j q :=
+  degreePropagationTail 242 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel242
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel243
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 243 j q :=
+  degreePropagationTail 243 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel243
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel244
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 244 j q :=
+  degreePropagationTail 244 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel244
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel245
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 245 j q :=
+  degreePropagationTail 245 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel245
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel246
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 246 j q :=
+  degreePropagationTail 246 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel246
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel247
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 247 j q :=
+  degreePropagationTail 247 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel247
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel248
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 248 j q :=
+  degreePropagationTail 248 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel248
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel249
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 249 j q :=
+  degreePropagationTail 249 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel249
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel250
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 250 j q :=
+  degreePropagationTail 250 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel250
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel251
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 251 j q :=
+  degreePropagationTail 251 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel251
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel252
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 252 j q :=
+  degreePropagationTail 252 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel252
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel253
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 253 j q :=
+  degreePropagationTail 253 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel253
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel254
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 254 j q :=
+  degreePropagationTail 254 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel254
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel255
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 255 j q :=
+  degreePropagationTail 255 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel255
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel256
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 256 j q :=
+  degreePropagationTail 256 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel256
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel257
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 257 j q :=
+  degreePropagationTail 257 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel257
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel258
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 258 j q :=
+  degreePropagationTail 258 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel258
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel259
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 259 j q :=
+  degreePropagationTail 259 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel259
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel260
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 260 j q :=
+  degreePropagationTail 260 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel260
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel261
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 261 j q :=
+  degreePropagationTail 261 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel261
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel262
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 262 j q :=
+  degreePropagationTail 262 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel262
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel263
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 263 j q :=
+  degreePropagationTail 263 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel263
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel264
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 264 j q :=
+  degreePropagationTail 264 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel264
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel265
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 265 j q :=
+  degreePropagationTail 265 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel265
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel266
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 266 j q :=
+  degreePropagationTail 266 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel266
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel267
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 267 j q :=
+  degreePropagationTail 267 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel267
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel268
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 268 j q :=
+  degreePropagationTail 268 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel268
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel269
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 269 j q :=
+  degreePropagationTail 269 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel269
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel270
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 270 j q :=
+  degreePropagationTail 270 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel270
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel271
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 271 j q :=
+  degreePropagationTail 271 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel271
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel272
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 272 j q :=
+  degreePropagationTail 272 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel272
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel273
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 273 j q :=
+  degreePropagationTail 273 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel273
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel274
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 274 j q :=
+  degreePropagationTail 274 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel274
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel275
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 275 j q :=
+  degreePropagationTail 275 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel275
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel276
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 276 j q :=
+  degreePropagationTail 276 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel276
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel277
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 277 j q :=
+  degreePropagationTail 277 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel277
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel278
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 278 j q :=
+  degreePropagationTail 278 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel278
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel279
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 279 j q :=
+  degreePropagationTail 279 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel279
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel280
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 280 j q :=
+  degreePropagationTail 280 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel280
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel281
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 281 j q :=
+  degreePropagationTail 281 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel281
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel282
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 282 j q :=
+  degreePropagationTail 282 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel282
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel283
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 283 j q :=
+  degreePropagationTail 283 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel283
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel284
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 284 j q :=
+  degreePropagationTail 284 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel284
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel285
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 285 j q :=
+  degreePropagationTail 285 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel285
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel286
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 286 j q :=
+  degreePropagationTail 286 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel286
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel287
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 287 j q :=
+  degreePropagationTail 287 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel287
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel288
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 288 j q :=
+  degreePropagationTail 288 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel288
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel289
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 289 j q :=
+  degreePropagationTail 289 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel289
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel290
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 290 j q :=
+  degreePropagationTail 290 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel290
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel291
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 291 j q :=
+  degreePropagationTail 291 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel291
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel292
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 292 j q :=
+  degreePropagationTail 292 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel292
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel293
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 293 j q :=
+  degreePropagationTail 293 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel293
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel294
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 294 j q :=
+  degreePropagationTail 294 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel294
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel295
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 295 j q :=
+  degreePropagationTail 295 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel295
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel296
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 296 j q :=
+  degreePropagationTail 296 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel296
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel297
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 297 j q :=
+  degreePropagationTail 297 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel297
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel298
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 298 j q :=
+  degreePropagationTail 298 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel298
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel299
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 299 j q :=
+  degreePropagationTail 299 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel299
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel300
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 300 j q :=
+  degreePropagationTail 300 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel300
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel301
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 301 j q :=
+  degreePropagationTail 301 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel301
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel302
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 302 j q :=
+  degreePropagationTail 302 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel302
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel303
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 303 j q :=
+  degreePropagationTail 303 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel303
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel304
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 304 j q :=
+  degreePropagationTail 304 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel304
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel305
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 305 j q :=
+  degreePropagationTail 305 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel305
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel306
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 306 j q :=
+  degreePropagationTail 306 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel306
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel307
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 307 j q :=
+  degreePropagationTail 307 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel307
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel308
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 308 j q :=
+  degreePropagationTail 308 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel308
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel309
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 309 j q :=
+  degreePropagationTail 309 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel309
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel310
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 310 j q :=
+  degreePropagationTail 310 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel310
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel311
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 311 j q :=
+  degreePropagationTail 311 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel311
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel312
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 312 j q :=
+  degreePropagationTail 312 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel312
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel313
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 313 j q :=
+  degreePropagationTail 313 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel313
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel314
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 314 j q :=
+  degreePropagationTail 314 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel314
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel315
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 315 j q :=
+  degreePropagationTail 315 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel315
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel316
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 316 j q :=
+  degreePropagationTail 316 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel316
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel317
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 317 j q :=
+  degreePropagationTail 317 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel317
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel318
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 318 j q :=
+  degreePropagationTail 318 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel318
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel319
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 319 j q :=
+  degreePropagationTail 319 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel319
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel320
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 320 j q :=
+  degreePropagationTail 320 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel320
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel321
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 321 j q :=
+  degreePropagationTail 321 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel321
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel322
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 322 j q :=
+  degreePropagationTail 322 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel322
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel323
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 323 j q :=
+  degreePropagationTail 323 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel323
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel324
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 324 j q :=
+  degreePropagationTail 324 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel324
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel325
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 325 j q :=
+  degreePropagationTail 325 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel325
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel326
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 326 j q :=
+  degreePropagationTail 326 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel326
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel327
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 327 j q :=
+  degreePropagationTail 327 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel327
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel328
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 328 j q :=
+  degreePropagationTail 328 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel328
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel329
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 329 j q :=
+  degreePropagationTail 329 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel329
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel330
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 330 j q :=
+  degreePropagationTail 330 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel330
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel331
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 331 j q :=
+  degreePropagationTail 331 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel331
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel332
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 332 j q :=
+  degreePropagationTail 332 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel332
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel333
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 333 j q :=
+  degreePropagationTail 333 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel333
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel334
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 334 j q :=
+  degreePropagationTail 334 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel334
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel335
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 335 j q :=
+  degreePropagationTail 335 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel335
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel336
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 336 j q :=
+  degreePropagationTail 336 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel336
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel337
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 337 j q :=
+  degreePropagationTail 337 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel337
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel338
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 338 j q :=
+  degreePropagationTail 338 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel338
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel339
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 339 j q :=
+  degreePropagationTail 339 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel339
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel340
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 340 j q :=
+  degreePropagationTail 340 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel340
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel341
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 341 j q :=
+  degreePropagationTail 341 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel341
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel342
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 342 j q :=
+  degreePropagationTail 342 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel342
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel343
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 343 j q :=
+  degreePropagationTail 343 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel343
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel344
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 344 j q :=
+  degreePropagationTail 344 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel344
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel345
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 345 j q :=
+  degreePropagationTail 345 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel345
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel346
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 346 j q :=
+  degreePropagationTail 346 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel346
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel347
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 347 j q :=
+  degreePropagationTail 347 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel347
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel348
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 348 j q :=
+  degreePropagationTail 348 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel348
+
+namespace ForestUnimodality.Stage170KernelData.Cell345.Kernel349
+open FiniteKernelRationalCertificate
+theorem checked : row.degreePropagationCheck 85 interval.lo interval.hi = true :=
+  degreePropagationThreshold
+
+theorem actual_residual_nonneg (j : ℤ) {q : ℝ}
+    (hq : q ∈ Set.Icc (interval.lo : ℝ) (interval.hi : ℝ)) :
+    0 ≤ row.toReal.residual 349 j q :=
+  degreePropagationTail 349 (by decide +kernel) j hq
+
+#print axioms checked
+#print axioms actual_residual_nonneg
+end ForestUnimodality.Stage170KernelData.Cell345.Kernel349
+

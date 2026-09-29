@@ -1,0 +1,42 @@
+import ForestUnimodality.IntermediateBridgeForest
+import ForestUnimodality.IntermediateBridgeCoverData.Rectangles
+import ForestUnimodality.Stage80KernelData.Cell121.Conclusion
+import ForestUnimodality.Stage80KernelData.Cell122.Conclusion
+import ForestUnimodality.Stage80KernelData.Cell123.Conclusion
+
+namespace ForestUnimodality.IntermediateBridgeForestData
+open IntermediateBridgeCover IntermediateBridgeCoverData
+set_option maxRecDepth 200000
+set_option maxHeartbeats 0
+
+theorem stage80_cell121 : (rectangle (80,121)).ForestValid := by
+  intro V _ G S B z k hB hG hz hk hpoint hrank hmean hhalf
+  have hp : 59≤S.card ∧ S.card≤98 ∧
+      z/(1+z)∈Set.Icc (Stage80KernelData.Cell121.interval.lo:ℝ) (Stage80KernelData.Cell121.interval.hi:ℝ) ∧
+      hardCoreAvailableMean G S B z∈Set.Icc (Stage80KernelData.Cell121.mlo:ℝ) (Stage80KernelData.Cell121.mhi:ℝ) := hpoint
+  rcases hp with ⟨hn,hN,hq,hm⟩
+  exact Stage80KernelData.Cell121.actual_no_weak_valley k hB hG (by omega) (by omega) hN hz hk hq hrank hmean hm
+
+#print axioms stage80_cell121
+
+theorem stage80_cell122 : (rectangle (80,122)).ForestValid := by
+  intro V _ G S B z k hB hG hz hk hpoint hrank hmean hhalf
+  have hp : 59≤S.card ∧ S.card≤98 ∧
+      z/(1+z)∈Set.Icc (Stage80KernelData.Cell122.interval.lo:ℝ) (Stage80KernelData.Cell122.interval.hi:ℝ) ∧
+      hardCoreAvailableMean G S B z∈Set.Icc (Stage80KernelData.Cell122.mlo:ℝ) (Stage80KernelData.Cell122.mhi:ℝ) := hpoint
+  rcases hp with ⟨hn,hN,hq,hm⟩
+  exact Stage80KernelData.Cell122.actual_no_weak_valley k hB hG (by omega) (by omega) hN hz hk hq hrank hmean hm
+
+#print axioms stage80_cell122
+
+theorem stage80_cell123 : (rectangle (80,123)).ForestValid := by
+  intro V _ G S B z k hB hG hz hk hpoint hrank hmean hhalf
+  have hp : 59≤S.card ∧ S.card≤98 ∧
+      z/(1+z)∈Set.Icc (Stage80KernelData.Cell123.interval.lo:ℝ) (Stage80KernelData.Cell123.interval.hi:ℝ) ∧
+      hardCoreAvailableMean G S B z∈Set.Icc (Stage80KernelData.Cell123.mlo:ℝ) (Stage80KernelData.Cell123.mhi:ℝ) := hpoint
+  rcases hp with ⟨hn,hN,hq,hm⟩
+  exact Stage80KernelData.Cell123.actual_no_weak_valley k hB hG (by omega) (by omega) hN hz hk hq hrank hmean hm
+
+#print axioms stage80_cell123
+
+end ForestUnimodality.IntermediateBridgeForestData

@@ -1,0 +1,12 @@
+{
+  "scope": "Successful local module check only; final theorem and independent rebuild pending",
+  "module": "ForestUnimodality/IntermediateBridgeRemaining.lean",
+  "source_sha256": "0a23326bf2468d48d2c30505212e542d0c52e77be8d0247f97251202a9407235",
+  "elapsed_seconds": 14604.369871953999,
+  "returncode": 0,
+  "axiom_reports": 6,
+  "local_progress_report_sha256": "713c27efe2f05f7dda21c8a36beeddf88ae481fd25f3ee5c55a0ec20e9fa0ea2",
+  "fresh_transitive_rebuild": false,
+  "full_proof_verified": false,
+  "separate_audit_exit_code": 0
+}

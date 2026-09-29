@@ -1,0 +1,7 @@
+* text=auto
+*.lean -text
+*.json -text
+lean-toolchain -text
+lakefile.toml -text
+*.py text eol=lf
+*.md text eol=lf

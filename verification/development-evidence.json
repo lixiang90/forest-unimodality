@@ -1,0 +1,23 @@
+{
+  "scope": "Sanitized digest references to local historical partial audits; not public independent reproduction",
+  "reports": {
+    "progress-regional-batch58-pass.json": {
+      "sha256": "e48e3aa935f48a7907434c06f7b05a8c6df6c7e49bb1d2c12702afc236657360",
+      "observed_utc": "2026-09-29T18:02:38.589093+00:00",
+      "scope": "Historical partial validation; not final candidate acceptance"
+    },
+    "isolated-tail1784-current-audit.json": {
+      "sha256": "c4a3b5ea8cfdfbc3068c0578fbf0e9cf95d2c3883d5159f8d4880b1d22784849",
+      "observed_utc": "2026-09-29T18:15:39.276859+00:00",
+      "scope": "Historical partial validation; not final candidate acceptance"
+    },
+    "integration-final-checkpoint-20260929T2100.json": {
+      "sha256": "839145d6c268d8e03ba7ee6514f28a7f6f27d1a983d578cb5643079c2a4fdfb7",
+      "observed_utc": "2026-09-29T06:46:54.831199+00:00",
+      "scope": "Historical partial validation; not final candidate acceptance"
+    }
+  },
+  "final_theorem_checked": false,
+  "full_rebuild_complete": false,
+  "organizer_acceptance_verified": false
+}

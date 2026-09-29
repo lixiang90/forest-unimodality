@@ -1,0 +1,23 @@
+{
+  "problem": "JSP-000826",
+  "stage": "unverified_development_publication",
+  "final_source_imported": false,
+  "portable_reproduction_passed": false,
+  "final_semantic_binding_complete": false,
+  "public_repository": "https://github.com/lixiang90/forest-unimodality",
+  "branch": "main",
+  "formalization_contributors": [
+    {
+      "github": "lixiang90",
+      "role": "project direction and publication; substantial Codex-assisted development",
+      "identity_verified": false
+    }
+  ],
+  "license": null,
+  "organizer_acceptance_verified": false,
+  "award_obtained": false,
+  "candidate_source_snapshot_complete": true,
+  "candidate_modules": 31598,
+  "candidate_source_bytes": 5754689467,
+  "source_version": "This Git commit; the awards draft pins the selected full source SHA"
+}

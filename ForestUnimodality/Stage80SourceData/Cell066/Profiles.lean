@@ -1,0 +1,21 @@
+import ForestUnimodality.Stage80SourceData.Cell066.Auxiliary
+import ForestUnimodality.Stage80LogVarianceData.Cell066
+import ForestUnimodality.Stage80MessageSourceData.Case057.Actual
+
+namespace ForestUnimodality.Stage80SourceData.Cell066
+open Stage80KernelData.Cell066
+variable {V : Type*} [DecidableEq V]
+
+theorem actual_variance {G : SimpleGraph V} {S B : Finset V} {z : ℝ}
+    (k : ℕ) (hB : IsMaximumMarginalIndependentOn G S B z) (hG : G.IsAcyclic)
+    (hn : 80≤S.card) (hN : S.card≤98) (hz : 0<z)
+    (hq : z/(1+z)∈Set.Icc (interval.lo:ℝ) (interval.hi:ℝ))
+    (_hmean : hardCoreMean G S z=k)
+    (_hm : hardCoreAvailableMean G S B z≤(mhi:ℝ)) :
+    hardCoreVariance G S z≤
+      (z/(1+z)*(1-z/(1+z))+(alpha:ℝ))*hardCoreAvailableMean G S B z+varianceIntercept := by
+  exact Stage80LogVarianceData.Cell066.actual_variance_of_source_valid
+    Stage80MessageSourceData.Case057.actual_source_valid hB hG hn hN hz hq
+
+#print axioms actual_variance
+end ForestUnimodality.Stage80SourceData.Cell066
