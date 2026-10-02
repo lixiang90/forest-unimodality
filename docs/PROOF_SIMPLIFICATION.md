@@ -41,6 +41,10 @@ Both module compilations and the generic Lean equality check passed. Each module
 
 This one paired run observed 4.91% lower wall time and 1.93% lower peak RSS, but 0.88% larger compiled output. Both jobs ran concurrently on the same server with cached imports. It is an exploratory measurement, not an estimate of full-project speedup. Source compression is established; aggregate runtime and downstream compatibility still require broader validation.
 
+## Remaining Stage80 compression opportunity
+
+A read-only scan of the branch found another **2,294 modules** with **3,157,563** redundant constant-branch functions. Their combined source size could decrease from **2,310,421,985** to **1,737,750,154 bytes**, saving **572,671,831 bytes (546.14 MiB)**. These files have not been modified or recompiled. This scan predicts source-size reduction only, not runtime improvement. [Scan summary](../verification/simplification-20261003/stage80-dry-run-summary.json).
+
 ## Next steps
 
 1. Use the paired module result to decide whether to expand constant-function compression across generated Stage80 modules.

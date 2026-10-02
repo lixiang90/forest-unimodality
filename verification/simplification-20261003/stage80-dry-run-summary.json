@@ -1,0 +1,10 @@
+{
+  "scope": "Read-only dry run on current simplification branch Stage80MessageSourceData",
+  "affected_modules": 2294,
+  "before_bytes": 2310421985,
+  "after_bytes": 1737750154,
+  "replacements": 3157563,
+  "seconds": 128.0470000000205,
+  "potential_saved_bytes": 572671831,
+  "potential_saved_mib": 546.1424169540405
+}
