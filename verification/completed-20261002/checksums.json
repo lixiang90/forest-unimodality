@@ -1,0 +1,10 @@
+{
+  "proof_commit": "fc5696dbd7a5d708c0bf32755b9027031e6a19e0",
+  "source_manifest_sha256": "b4fd38bc44d9fb2218bd10cf18d3fa8086c0ca60d44b376490a6a6d1e65aad48",
+  "module_ledger_sha256": "d077c9c55d6a4453139c266c433ca178b042e0c36dabd65c5e2119ad71420255",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "final_target_log_sha256": "065774e82a7c6fb0c41e4d6b7b5a7840c779f6688b1452a40845b707a090412d",
+  "audit_sha256": "d51a5e832b351e51d9fb4b4143aaadedf92d768be35dc12418957fb8bcba162b",
+  "retained_full_evidence_archive_sha256": "6cb2e40e60ffb434c9e2757255b5ef4d2530da338768238f218264979c082f1a",
+  "archive_file_count": 38573
+}

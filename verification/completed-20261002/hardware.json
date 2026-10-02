@@ -1,0 +1,18 @@
+{
+  "cpu": "2 x AMD EPYC 7B12 64-Core Processor",
+  "sockets": 2,
+  "physical_cores": 128,
+  "logical_threads": 256,
+  "memory_bytes": 540791611392,
+  "memory_gib": 503.65,
+  "os": "Ubuntu 22.04.3 LTS (x86_64)",
+  "filesystem_bytes": 982820896768,
+  "storage": "NVMe-backed filesystem",
+  "primary_global_job_limit": 64,
+  "primary_stage80_job_limit": 32,
+  "lean_threads_per_job": 1,
+  "benchmark_global_job_limit": 128,
+  "benchmark_stage80_job_limit": 64,
+  "benchmark_project_objects_reused": 0,
+  "benchmark_external_dependency_cache_reused": true
+}
