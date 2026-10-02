@@ -1,0 +1,46 @@
+{
+  "scope": "Paired representative-module comparison with cached verified imports; not a full rebuild of the simplified dependency closure",
+  "baseline_proof_commit": "fc5696dbd7a5d708c0bf32755b9027031e6a19e0",
+  "lean_version": "4.32.2",
+  "hardware": "2 x AMD EPYC 7B12;128 physical cores/256 threads;503.65 GiB RAM;Ubuntu22.04.3",
+  "lean_threads_per_job": 1,
+  "pair_run_concurrently": true,
+  "number_of_pairs": 1,
+  "full_downstream_rebuild_complete": false,
+  "transformation": {
+    "module": "ForestUnimodality.Stage80MessageSourceData.Case005.Batch018",
+    "replacements": 1440,
+    "before_bytes": 1476009,
+    "after_bytes": 1201765,
+    "before_sha256": "6eafd0742ac23608771e1b642bf9639aa88c28f4d2d3c160ce8c7ff879593ba0",
+    "after_sha256": "ccdec748d4f466ccca15294fdda3575fd9eef175459751f678c781365180abbb"
+  },
+  "semantics_passed": true,
+  "results": [
+    {
+      "label": "baseline",
+      "exit_code": 0,
+      "wall_seconds": 256.2478674019949,
+      "peak_rss_kib": 8339924,
+      "source_sha256": "6eafd0742ac23608771e1b642bf9639aa88c28f4d2d3c160ce8c7ff879593ba0",
+      "output_bytes": 21959488
+    },
+    {
+      "label": "simplified",
+      "exit_code": 0,
+      "wall_seconds": 243.6732088699937,
+      "peak_rss_kib": 8178676,
+      "source_sha256": "ccdec748d4f466ccca15294fdda3575fd9eef175459751f678c781365180abbb",
+      "output_bytes": 22153312
+    }
+  ],
+  "source_reduction_percent": 18.58010350885394,
+  "single_pair_wall_time_reduction_percent": 4.907224656927345,
+  "single_pair_rss_reduction_percent": 1.933446875535072,
+  "object_size_increase_percent": 0.8826435297580648,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}
