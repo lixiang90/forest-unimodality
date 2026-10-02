@@ -1,0 +1,16 @@
+{
+  "proof_commit": "fc5696dbd7a5d708c0bf32755b9027031e6a19e0",
+  "source_manifest_sha256": "b4fd38bc44d9fb2218bd10cf18d3fa8086c0ca60d44b376490a6a6d1e65aad48",
+  "module_ledger_sha256": "4002b40ef5c4fc8ac140bfa64507c360e7a653b1282c6855acac1cc65ffadd87",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "retained_full_evidence_archive_sha256": "57370e3dd80539a3227b9687fe6bbf3c75bc66765fa2ae34b96acb4d55887a0c",
+  "archive_file_count": 31627,
+  "archive_bytes": 17193389,
+  "published_files": {
+    "audit.json": "c1e0817282dcdb40c31f0de56cef532d852cf78918a5b37cd6397de07a2a1fd6",
+    "final-target.log": "065774e82a7c6fb0c41e4d6b7b5a7840c779f6688b1452a40845b707a090412d",
+    "hardware.json": "b2f4c191f00f7a718485c86d670b80fa691a4c088d81a4633d4204153688d76f",
+    "REPORT.md": "93c16c69f6175444a2637e53021e60c80f046b91de109a17dc034b4b9ed48370",
+    "timing-report.json": "9b4e3f6adadc263da4d968167f3671eaf3fb2d1e4abc6e0f445d6b43e4df5548"
+  }
+}

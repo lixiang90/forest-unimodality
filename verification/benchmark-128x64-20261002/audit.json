@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "audit_script_sha256": "7766a6cc921667cb01baad030e6a772541246ac68958d77115d8c2ed7fcae2e9",
+  "recompiled_modules": 0,
+  "organizer_acceptance": false,
+  "award_obtained": false,
+  "semantic_review_complete": false,
+  "external_dependencies_source_rebuilt": false,
+  "retained_verified_campaign_modules": 0,
+  "fresh_project_rebuild": true,
+  "separate_fresh_host_rebuild": false,
+  "axiom_reports": {
+    "ForestUnimodality.Completed.rectangles_valid": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ForestUnimodality.Completed.parents_valid": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ForestUnimodality.Completed.countIndependent_unimodal_of_isAcyclic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ForestUnimodality.Completed.completeTarget": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "modules": 31598,
+  "commit": "fc5696dbd7a5d708c0bf32755b9027031e6a19e0",
+  "source_manifest_sha256": "b4fd38bc44d9fb2218bd10cf18d3fa8086c0ca60d44b376490a6a6d1e65aad48",
+  "ledger_sha256": "4002b40ef5c4fc8ac140bfa64507c360e7a653b1282c6855acac1cc65ffadd87",
+  "compiler_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "independent_evidence_audit_complete": true,
+  "separate_kernel_replay_performed": false,
+  "checked_utc": "2026-10-02T17:24:11.252136+00:00"
+}
