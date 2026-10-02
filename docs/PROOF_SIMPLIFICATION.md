@@ -27,7 +27,7 @@ The first changed module is `ForestUnimodality.Stage80MessageSourceData.Case005.
 ## Validation
 
 - Python transformation tests: `python scripts/test_simplify_constant_lambdas.py`.
-- Candidate source identity: `python scripts/verify.py --candidate --source-only` (does not run Lean).
+- Candidate source identity: `python scripts/verify.py --candidate --source-only` passed for all 31,598 module hashes and the dependency closure; it does not run Lean. [Receipt](../verification/simplification-20261003/source-identity.json).
 - Cloud experiment: generic Lean equality check followed by a paired original/simplified module compilation, using Lean 4.32.2, one Lean thread per job, and verified imports from the completed benchmark. Outputs go into a separate experimental directory. This is a module-level test, not a full downstream rebuild.
 
 Both module compilations and the generic Lean equality check passed. Each module's `cells_checked` axiom report contains exactly `propext`, `Classical.choice`, and `Quot.sound`. [Recorded results](../verification/simplification-20261003/pilot-results.json).

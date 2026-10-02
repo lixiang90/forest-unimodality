@@ -1,0 +1,8 @@
+{
+  "source_identity_passed": true,
+  "modules": 31598,
+  "candidate": true,
+  "lean_executed": false,
+  "proof_verified": false,
+  "command": "python scripts/verify.py --candidate --source-only"
+}
