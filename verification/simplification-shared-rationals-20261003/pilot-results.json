@@ -1,0 +1,110 @@
+{
+  "scope": "Paired module test with cached verified imports; baseline batch namespace renamed ReferenceBatch018 so the exact cell values can be compared by rfl. Not a downstream closure rebuild.",
+  "passed": true,
+  "baseline_branch_commit": "cec8d4a891d9f235ea930f837f34075ee4335371",
+  "lean_version": "4.32.2",
+  "hardware": "2 x AMD EPYC 7B12; 128 physical cores/256 threads; 503.65 GiB RAM; Ubuntu 22.04.3",
+  "lean_threads_per_job": 1,
+  "pair_run_concurrently": true,
+  "number_of_pairs": 1,
+  "full_downstream_rebuild_complete": false,
+  "affected_modules_including_changed": 113,
+  "transformation": {
+    "definitions": 1060,
+    "occurrences": 8888,
+    "before_bytes": 1201765,
+    "after_bytes": 772128,
+    "before_sha256": "ccdec748d4f466ccca15294fdda3575fd9eef175459751f678c781365180abbb",
+    "after_sha256": "c96604fd7f18d8be2977bb2544ea7851aa6314b03fef3d88c5b3a92487bdb457"
+  },
+  "results": [
+    {
+      "label": "baseline",
+      "module": "ForestUnimodality.Stage80MessageSourceData.Case005.ReferenceBatch018",
+      "exit_code": 0,
+      "wall_seconds": 244.35919606000243,
+      "peak_rss_kib": 8251784,
+      "source_sha256": "be82c1b7b94914219ff63154c4389c9b6d026fa97327c493bf28170607da2f47",
+      "output_bytes": 22153320,
+      "log": "'ForestUnimodality.Stage80MessageSourceData.Case005.ReferenceBatch018.cells_checked' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/baseline/time.txt",
+        "/home/admin0486/forest-verification-fc5696db-20261002/toolchain/bin/lean",
+        "-j",
+        "1",
+        "-Dpp.fullNames=true",
+        "-o",
+        "/home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/baseline/lib/ForestUnimodality/Stage80MessageSourceData/Case005/ReferenceBatch018.olean",
+        "ForestUnimodality/Stage80MessageSourceData/Case005/ReferenceBatch018.lean"
+      ]
+    },
+    {
+      "label": "simplified",
+      "module": "ForestUnimodality.Stage80MessageSourceData.Case005.Batch018",
+      "exit_code": 0,
+      "wall_seconds": 237.46406015999673,
+      "peak_rss_kib": 8145720,
+      "source_sha256": "c96604fd7f18d8be2977bb2544ea7851aa6314b03fef3d88c5b3a92487bdb457",
+      "output_bytes": 22283128,
+      "log": "'ForestUnimodality.Stage80MessageSourceData.Case005.Batch018.cells_checked' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/simplified/time.txt",
+        "/home/admin0486/forest-verification-fc5696db-20261002/toolchain/bin/lean",
+        "-j",
+        "1",
+        "-Dpp.fullNames=true",
+        "-o",
+        "/home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/simplified/lib/ForestUnimodality/Stage80MessageSourceData/Case005/Batch018.olean",
+        "ForestUnimodality/Stage80MessageSourceData/Case005/Batch018.lean"
+      ]
+    }
+  ],
+  "equality": {
+    "exit_code": 0,
+    "wall_seconds": 3.6105944070004625,
+    "log": "'sameCell00' depends on axioms: [propext, Classical.choice, Quot.sound]\n'sameCell01' depends on axioms: [propext, Classical.choice, Quot.sound]\n'sameCell02' depends on axioms: [propext, Classical.choice, Quot.sound]\n'sameCell03' depends on axioms: [propext, Classical.choice, Quot.sound]\n'sameCell04' depends on axioms: [propext, Classical.choice, Quot.sound]\n'sameCell05' depends on axioms: [propext, Classical.choice, Quot.sound]\n'sameCell06' depends on axioms: [propext, Classical.choice, Quot.sound]\n'sameCell07' depends on axioms: [propext, Classical.choice, Quot.sound]\n'sameCells' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "command": [
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "/home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/equality-retry/time.txt",
+      "/home/admin0486/forest-verification-fc5696db-20261002/toolchain/bin/lean",
+      "-j",
+      "1",
+      "-Dpp.fullNames=true",
+      "-o",
+      "/home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/equality-retry/Equality.olean",
+      "Equality.lean"
+    ],
+    "overlay": "Symlinks to verified benchmark imports, overriding only the two tested module objects; original object trees unchanged."
+  },
+  "initial_equality_path_error": {
+    "label": "equality",
+    "module": "Equality",
+    "exit_code": 1,
+    "wall_seconds": 0.24233277900202665,
+    "peak_rss_kib": 188432,
+    "source_sha256": "547a9432cb6457cb5959810e8bb703869d5173a59c1e2407ff34b0ddc038cc2d",
+    "output_bytes": null,
+    "log": "Equality.lean:1:0: error: object file '/home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/simplified/lib/ForestUnimodality/Stage80MessageSourceData/Case005/Parameters.olean' of module ForestUnimodality.Stage80MessageSourceData.Case005.Parameters does not exist\n",
+    "command": [
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "/home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/equality/time.txt",
+      "/home/admin0486/forest-verification-fc5696db-20261002/toolchain/bin/lean",
+      "-j",
+      "1",
+      "-Dpp.fullNames=true",
+      "-o",
+      "/home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/equality/lib/Equality.olean",
+      "Equality.lean"
+    ]
+  }
+}

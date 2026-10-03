@@ -1,0 +1,9 @@
+{
+  "source_identity_passed": true,
+  "modules": 31598,
+  "candidate": true,
+  "lean_executed": false,
+  "proof_verified": false,
+  "command": "python scripts/verify.py --candidate --source-only",
+  "manifest_sha256": "200d86747f9174be78c8fc0ccafd85c77f5b52f013c16e4c552c9ce0e771160c"
+}

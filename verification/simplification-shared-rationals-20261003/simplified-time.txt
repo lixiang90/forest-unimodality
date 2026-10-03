@@ -1,0 +1,23 @@
+	Command being timed: "/home/admin0486/forest-verification-fc5696db-20261002/toolchain/bin/lean -j 1 -Dpp.fullNames=true -o /home/admin0486/forest-verification-fc5696db-20261002/simplification-20261003-shared-rationals/simplified/lib/ForestUnimodality/Stage80MessageSourceData/Case005/Batch018.olean ForestUnimodality/Stage80MessageSourceData/Case005/Batch018.lean"
+	User time (seconds): 232.80
+	System time (seconds): 5.60
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:57.46
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 8145720
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 941222
+	Voluntary context switches: 65788
+	Involuntary context switches: 750
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 43536
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

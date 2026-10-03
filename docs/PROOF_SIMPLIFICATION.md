@@ -51,3 +51,53 @@ A read-only scan of the branch found another **2,294 modules** with **3,157,563*
 2. Investigate repeated certificate subexpressions and opportunities to share them without adding axioms or weakening kernel verification.
 3. Rebuild changed modules and all dependent modules with a refreshed candidate manifest, then run the final target and axiom check and evidence audit.
 4. Keep the accepted baseline and awards submission pinned to the existing proof until the simplified candidate completes that validation.
+
+## Second experiment: share repeated literal rationals
+
+The same `Case005.Batch018` module now gives profitable repeated fractions private,
+transparent `Rat` definitions. The transformation retains the exact numerator and
+denominator spelling and leaves every `decide +kernel` proof intact. It adds
+1,060 shared definitions, replacing 8,888 literal occurrences. Definitions are
+selected only if their declaration overhead is smaller than the bytes saved.
+Source size decreases from **1,201,765 to 772,128 bytes (35.75%)** relative to the
+first simplification, or **47.69%** relative to the initial 1,476,009-byte module.
+
+`scripts/simplify_shared_rationals.py` defaults to a dry run and limits replacements
+to recognized generated `Cell` bodies. It rejects name collisions and unexpected
+comments or strings. An inverse substitution must reproduce the original bytes
+exactly; line endings and all other text are preserved. Five Python tests cover
+CRLF/LF preservation, idempotence, infrequent literals, distinct signed fractions,
+unrelated definitions and rejected input. The previous five lambda tests also pass.
+
+Both cloud module compilations passed. For the control, only the batch namespace
+was renamed `ReferenceBatch018`, allowing both versions to be imported together.
+Lean then proved equality of each of the eight cells and their complete list by
+`rfl`. All nine equality reports and both `cells_checked` reports contain exactly
+`propext`, `Classical.choice`, and `Quot.sound`.
+
+| Metric | First-round source (control) | Shared-rational source |
+| --- | ---: | ---: |
+| Source bytes before control namespace rename | 1,201,765 | 772,128 |
+| Wall time (seconds) | 244.359 | 237.464 |
+| Peak RSS (KiB) | 8,251,784 | 8,145,720 |
+| Object bytes | 22,153,320 | 22,283,128 |
+
+This single concurrent pair observed **2.82% less wall time** and **1.29% less peak
+RSS**, with **0.59% larger objects**. The established benefit is source compression;
+these measurements do not establish a full-build speedup. The namespace change in
+the control is recorded in the test source hashes. The first equality attempt had
+an import-path error; a complete symlink overlay of verified imports fixed it, and
+only the equality check was rerun (3.611 seconds). Both logs are retained.
+
+[Results, commands and hashes](../verification/simplification-shared-rationals-20261003/pilot-results.json),
+[equality check](../verification/simplification-shared-rationals-20261003/Equality.lean),
+and [equality log](../verification/simplification-shared-rationals-20261003/equality.log)
+are committed with the sealed experiment scripts. Candidate source identity and
+closure validation passed for all **31,598 modules**, without running local Lean.
+
+The affected dependency closure contains **113 modules including the changed
+batch**. This experiment compiles the changed batch and proves cell equality;
+it has not rebuilt those downstream modules. The main branch and awards submission
+continue to select the previously verified proof snapshot. The next validation
+step is to rebuild this affected closure and repeat the final target check and
+evidence audit before changing that selection.
