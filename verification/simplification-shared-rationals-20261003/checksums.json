@@ -1,11 +1,12 @@
 {
+  ".gitattributes": "1fdc445df664f61e778cb1d2fa72bc2605c357b8911e8abcabc559e7387cc823",
   "Equality.lean": "547a9432cb6457cb5959810e8bb703869d5173a59c1e2407ff34b0ddc038cc2d",
   "affected-modules.json": "bc97e938ffb84ec25737055d98363adab29e2c29fd0516a05d5bedc730eba587",
   "baseline-lean.log": "babd8a3549b1ecc900b6ccac90e46b81aef0a2703c3227bfda9fab58b9790dd9",
   "baseline-time.txt": "b666fcfe6546ffb701f33a66b3a1ba6eb15f31f45a88ab2ff2e7c41e8e993fde",
   "controller.py": "efc2acffae9b3306b3a308db12ffc6bf283b9e8e9d60fb9d6f814f541e4862e2",
   "equality-initial-path-error.log": "ea0def44c1abeb8018838d6ebdd558cb36b7c863cd2afa238856b112bf032ba6",
-  "equality-retry.py": "5e84ec38205d94f504111feaf5c0fee813563755433695fc23dccbb6b24cad93",
+  "equality-retry.py": "c0ee440001846b7b0a58f7aef71ecbfbddeb1af316e55b279bf1be5c6063ae15",
   "equality.log": "da4ca1b8dc22aee0129b1a7925d46027b8b865483ebff5b225bee406ecb93828",
   "pilot-results.json": "54168c16377f7a5064adcd7025fc417e43351b075a46f7c3fd5ed90940e5bc1f",
   "simplified-lean.log": "3dab3b1312f0bf375bf125a51517752f4bb138707b2f3ca95d8b980df6d0071c",
